@@ -74,6 +74,7 @@
     <instance objName="obj_food" x="96" y="672" name="inst_77412330" locked="0" code="" scaleX="-0.259999990463257" scaleY="-0.255813956260681" colour="4294967295" rotation="0"/>
     <instance objName="obj_food" x="320" y="672" name="inst_31455B56" locked="0" code="" scaleX="-0.255813956260681" scaleY="-0.259999990463257" colour="4294967295" rotation="0"/>
     <instance objName="obj_food" x="96" y="448" name="inst_8AB0430E" locked="0" code="" scaleX="0.255813956260681" scaleY="0.255813956260681" colour="4294967295" rotation="0"/>
+    <instance objName="obj_chemcloud" x="288" y="192" name="inst_CC1EC506" locked="0" code="" scaleX="2" scaleY="2" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
