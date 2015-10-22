@@ -28,7 +28,7 @@
             <string>ATP = 0;
 cellHealth = 100;
 isPlayer = true;
-
+//Comment
 canBeHurt = true;
 
 maxHeight = sprite_height*image_yscale*2;
