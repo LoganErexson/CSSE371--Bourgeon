@@ -27,12 +27,12 @@
             <kind>1</kind>
             <string>Particle_Emitter = part_emitter_create(global.P_System);
 
-image_xscale = (random(0.5) + 0.1) * 8;
-image_yscale = image_xscale;
+			image_xscale = (random(0.5) + 0.1) * 8;
+			image_yscale = image_xscale;
 
-part_emitter_region(global.P_System, Particle_Emitter, x, sprite_width*image_xscale, y, sprite_height*image_yscale, ps_shape_ellipse, ps_distr_gaussian);
-part_emitter_stream(global.P_System, Particle_Emitter, global.Particle1, 3);
-</string>
+			part_emitter_region(global.P_System, Particle_Emitter, x, sprite_width*image_xscale, y, sprite_height*image_yscale, ps_shape_ellipse, ps_distr_gaussian);
+			part_emitter_stream(global.P_System, Particle_Emitter, global.Particle1, 3);
+			</string>
           </argument>
         </arguments>
       </action>
