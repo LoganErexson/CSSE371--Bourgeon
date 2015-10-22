@@ -9,6 +9,7 @@
     <sprite>sprites\spr_cell</sprite>
     <sprite>sprites\spr_particle</sprite>
     <sprite>sprites\spr_wall</sprite>
+    <sprite>sprites\spr_chemcloud</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -34,7 +35,7 @@
     <rtf>help.rtf</rtf>
   </help>
   <TutorialState>
-    <IsTutorial>0</IsTutorial>
+    <IsTutorial>-1</IsTutorial>
     <TutorialName>C:\Users\erexsolr\AppData\Local\GameMaker-Studio\tutorials\08_Levels_And_Saving\</TutorialName>
     <TutorialPage>0</TutorialPage>
   </TutorialState>
