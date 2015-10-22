@@ -58,28 +58,28 @@ part_emitter_stream(global.P_System, Particle_Emitter, global.bgParticle, 1);</c
   </views>
   <instances>
     <instance objName="obj_cell" x="416" y="256" name="inst_6A49CDE8" locked="0" code="" scaleX="0.285087704658508" scaleY="0.274725288152695" colour="4294967295" rotation="0"/>
-    <instance objName="obj_food" x="96" y="128" name="inst_FBE67F7B" locked="0" code="" scaleX="0.255813956260681" scaleY="0.255813956260681" colour="4294967295" rotation="0"/>
-    <instance objName="obj_food" x="96" y="128" name="inst_40480C5C" locked="0" code="" scaleX="0.255813956260681" scaleY="0.255813956260681" colour="4294967295" rotation="0"/>
-    <instance objName="obj_food" x="96" y="128" name="inst_EEAA24CF" locked="0" code="" scaleX="0.255813956260681" scaleY="0.255813956260681" colour="4294967295" rotation="0"/>
-    <instance objName="obj_food" x="212" y="288" name="inst_1A5A2392" locked="0" code="" scaleX="0.214285716414452" scaleY="0.162790700793266" colour="4294967295" rotation="0"/>
-    <instance objName="obj_food" x="96" y="128" name="inst_601EF7CF" locked="0" code="" scaleX="0.255813956260681" scaleY="0.255813956260681" colour="4294967295" rotation="0"/>
-    <instance objName="obj_food" x="416" y="448" name="inst_D85BDC7A" locked="0" code="" scaleX="-0.255813956260681" scaleY="-0.255813956260681" colour="4294967295" rotation="0"/>
-    <instance objName="obj_food" x="576" y="288" name="inst_BDD20DDA" locked="0" code="" scaleX="-0.25" scaleY="0.204545453190804" colour="4294967295" rotation="0"/>
-    <instance objName="obj_food" x="544" y="128" name="inst_23224D7F" locked="0" code="" scaleX="-0.255813956260681" scaleY="-0.259999990463257" colour="4294967295" rotation="0"/>
-    <instance objName="obj_food" x="352" y="64" name="inst_8A847632" locked="0" code="" scaleX="0.255813956260681" scaleY="0.255813956260681" colour="4294967295" rotation="0"/>
-    <instance objName="obj_food" x="256" y="480" name="inst_4639DBF4" locked="0" code="" scaleX="-0.259999990463257" scaleY="-0.255813956260681" colour="4294967295" rotation="0"/>
-    <instance objName="obj_food" x="96" y="128" name="inst_5E821DBB" locked="0" code="" scaleX="0.255813956260681" scaleY="0.255813956260681" colour="4294967295" rotation="0"/>
-    <instance objName="obj_food" x="800" y="224" name="inst_AD659A78" locked="0" code="" scaleX="-0.259999990463257" scaleY="-0.255813956260681" colour="4294967295" rotation="0"/>
-    <instance objName="obj_food" x="800" y="224" name="inst_17CE00E8" locked="0" code="" scaleX="-0.259999990463257" scaleY="-0.255813956260681" colour="4294967295" rotation="0"/>
-    <instance objName="obj_food" x="800" y="224" name="inst_A0EDE090" locked="0" code="" scaleX="-0.259999990463257" scaleY="-0.255813956260681" colour="4294967295" rotation="0"/>
-    <instance objName="obj_food" x="800" y="224" name="inst_5BDC67B4" locked="0" code="" scaleX="-0.259999990463257" scaleY="-0.255813956260681" colour="4294967295" rotation="0"/>
-    <instance objName="obj_food" x="800" y="224" name="inst_1EFDB2A9" locked="0" code="" scaleX="-0.259999990463257" scaleY="-0.255813956260681" colour="4294967295" rotation="0"/>
-    <instance objName="obj_food" x="832" y="416" name="inst_6941C7A3" locked="0" code="" scaleX="-0.255813956260681" scaleY="-0.255813956260681" colour="4294967295" rotation="0"/>
-    <instance objName="obj_food" x="768" y="576" name="inst_4459F992" locked="0" code="" scaleX="0.255813956260681" scaleY="0.244444444775581" colour="4294967295" rotation="0"/>
-    <instance objName="obj_food" x="576" y="576" name="inst_DF6E6950" locked="0" code="" scaleX="-0.255813956260681" scaleY="-0.259999990463257" colour="4294967295" rotation="0"/>
-    <instance objName="obj_food" x="96" y="672" name="inst_77412330" locked="0" code="" scaleX="-0.259999990463257" scaleY="-0.255813956260681" colour="4294967295" rotation="0"/>
-    <instance objName="obj_food" x="320" y="672" name="inst_31455B56" locked="0" code="" scaleX="-0.255813956260681" scaleY="-0.259999990463257" colour="4294967295" rotation="0"/>
-    <instance objName="obj_food" x="96" y="448" name="inst_8AB0430E" locked="0" code="" scaleX="0.255813956260681" scaleY="0.255813956260681" colour="4294967295" rotation="0"/>
+    <instance objName="obj_particle" x="96" y="128" name="inst_FBE67F7B" locked="0" code="" scaleX="0.255813956260681" scaleY="0.255813956260681" colour="4294967295" rotation="0"/>
+    <instance objName="obj_particle" x="96" y="128" name="inst_40480C5C" locked="0" code="" scaleX="0.255813956260681" scaleY="0.255813956260681" colour="4294967295" rotation="0"/>
+    <instance objName="obj_particle" x="96" y="128" name="inst_EEAA24CF" locked="0" code="" scaleX="0.255813956260681" scaleY="0.255813956260681" colour="4294967295" rotation="0"/>
+    <instance objName="obj_particle" x="212" y="288" name="inst_1A5A2392" locked="0" code="" scaleX="0.214285716414452" scaleY="0.162790700793266" colour="4294967295" rotation="0"/>
+    <instance objName="obj_particle" x="96" y="128" name="inst_601EF7CF" locked="0" code="" scaleX="0.255813956260681" scaleY="0.255813956260681" colour="4294967295" rotation="0"/>
+    <instance objName="obj_particle" x="416" y="448" name="inst_D85BDC7A" locked="0" code="" scaleX="-0.255813956260681" scaleY="-0.255813956260681" colour="4294967295" rotation="0"/>
+    <instance objName="obj_particle" x="576" y="288" name="inst_BDD20DDA" locked="0" code="" scaleX="-0.25" scaleY="0.204545453190804" colour="4294967295" rotation="0"/>
+    <instance objName="obj_particle" x="544" y="128" name="inst_23224D7F" locked="0" code="" scaleX="-0.255813956260681" scaleY="-0.259999990463257" colour="4294967295" rotation="0"/>
+    <instance objName="obj_particle" x="352" y="64" name="inst_8A847632" locked="0" code="" scaleX="0.255813956260681" scaleY="0.255813956260681" colour="4294967295" rotation="0"/>
+    <instance objName="obj_particle" x="256" y="480" name="inst_4639DBF4" locked="0" code="" scaleX="-0.259999990463257" scaleY="-0.255813956260681" colour="4294967295" rotation="0"/>
+    <instance objName="obj_particle" x="96" y="128" name="inst_5E821DBB" locked="0" code="" scaleX="0.255813956260681" scaleY="0.255813956260681" colour="4294967295" rotation="0"/>
+    <instance objName="obj_particle" x="800" y="224" name="inst_AD659A78" locked="0" code="" scaleX="-0.259999990463257" scaleY="-0.255813956260681" colour="4294967295" rotation="0"/>
+    <instance objName="obj_particle" x="800" y="224" name="inst_17CE00E8" locked="0" code="" scaleX="-0.259999990463257" scaleY="-0.255813956260681" colour="4294967295" rotation="0"/>
+    <instance objName="obj_particle" x="800" y="224" name="inst_A0EDE090" locked="0" code="" scaleX="-0.259999990463257" scaleY="-0.255813956260681" colour="4294967295" rotation="0"/>
+    <instance objName="obj_particle" x="800" y="224" name="inst_5BDC67B4" locked="0" code="" scaleX="-0.259999990463257" scaleY="-0.255813956260681" colour="4294967295" rotation="0"/>
+    <instance objName="obj_particle" x="800" y="224" name="inst_1EFDB2A9" locked="0" code="" scaleX="-0.259999990463257" scaleY="-0.255813956260681" colour="4294967295" rotation="0"/>
+    <instance objName="obj_particle" x="832" y="416" name="inst_6941C7A3" locked="0" code="" scaleX="-0.255813956260681" scaleY="-0.255813956260681" colour="4294967295" rotation="0"/>
+    <instance objName="obj_particle" x="768" y="576" name="inst_4459F992" locked="0" code="" scaleX="0.255813956260681" scaleY="0.244444444775581" colour="4294967295" rotation="0"/>
+    <instance objName="obj_particle" x="576" y="576" name="inst_DF6E6950" locked="0" code="" scaleX="-0.255813956260681" scaleY="-0.259999990463257" colour="4294967295" rotation="0"/>
+    <instance objName="obj_particle" x="96" y="672" name="inst_77412330" locked="0" code="" scaleX="-0.259999990463257" scaleY="-0.255813956260681" colour="4294967295" rotation="0"/>
+    <instance objName="obj_particle" x="320" y="672" name="inst_31455B56" locked="0" code="" scaleX="-0.255813956260681" scaleY="-0.259999990463257" colour="4294967295" rotation="0"/>
+    <instance objName="obj_particle" x="96" y="448" name="inst_8AB0430E" locked="0" code="" scaleX="0.255813956260681" scaleY="0.255813956260681" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

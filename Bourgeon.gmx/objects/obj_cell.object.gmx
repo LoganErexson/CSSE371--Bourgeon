@@ -25,25 +25,29 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>canGlycosis = false;
-isPhototropic = false;
-canPhotosythesis = false;
-canOxidativeMetabolise = false;
-ciliaLevel = 2;
-flagellaLevel = 2;
-ATP = 0;
+            <string>ATP = 0;
+cellHealth = 100;
+isPlayer = true;
+
 maxHeight = sprite_height*image_yscale*2;
 maxWidth = sprite_width*image_xscale*2;
 scaleFactor = 1;
+image_blend=random(c_white)
+shape = "circle"
+
+hasPili = false;
 hasCellWall = false;
 tempResitance = 0;
 visionLevel = 0;
-image_blend=random(c_white)
-hasPili = false;
+
+canGlycosis = false;
+isPhototropic = false;
+canPhotosythesis = false;
+canOxidativeMetabolise = false;
 canPhagocytosis = false;
-shape = "circle"
-cellHealth = 100;
-isPlayer = true;
+
+ciliaLevel = 2;
+flagellaLevel = 2;
 cellSpeed =1;
 if(flagellaLevel == 0)
 {
@@ -204,7 +208,7 @@ image_angle= direction+180
         <isnot>0</isnot>
       </action>
     </event>
-    <event eventtype="4" ename="obj_food">
+    <event eventtype="4" ename="obj_particle">
       <action>
         <libid>1</libid>
         <id>603</id>
