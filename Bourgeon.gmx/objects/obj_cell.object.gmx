@@ -43,7 +43,7 @@ hasPili = false;
 canPhagocytosis = false;
 shape = "circle"
 cellHealth = 100;
-isPlayer = false;
+isPlayer = true;
 cellSpeed =1;
 if(flagellaLevel == 0)
 {
