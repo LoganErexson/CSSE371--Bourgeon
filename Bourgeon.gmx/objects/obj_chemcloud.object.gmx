@@ -27,12 +27,14 @@
             <kind>1</kind>
             <string>Particle_Emitter = part_emitter_create(global.P_System);
 
-clouddiameter = random(350) + 170;
+chemtype = random(array_length_1d(global.chemicals));
+clouddiameter = random(350) + 170; // Diameter of this cloud
+
 image_xscale = (clouddiameter/10)*image_xscale;
 image_yscale = (clouddiameter/10)*image_yscale;
 
 part_emitter_region(global.P_System, Particle_Emitter, x, x+clouddiameter, y, y+clouddiameter, ps_shape_ellipse, ps_distr_gaussian);
-part_emitter_stream(global.P_System, Particle_Emitter, global.Particle1, 6);
+part_emitter_stream(global.P_System, Particle_Emitter, global.chemparticles[chemtype], 6);
 </string>
           </argument>
         </arguments>
