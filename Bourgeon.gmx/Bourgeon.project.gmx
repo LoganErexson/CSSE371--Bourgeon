@@ -24,6 +24,7 @@
     <object>objects\obj_particle</object>
     <object>objects\obj_wall</object>
     <object>objects\obj_chemcloud</object>
+    <object>objects\obj_controller</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_main</room>
