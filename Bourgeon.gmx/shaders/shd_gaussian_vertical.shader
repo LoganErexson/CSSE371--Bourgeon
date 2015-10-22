@@ -16,7 +16,7 @@ uniform vec2 resolution;
 
 void main()
 { 
-float blurSize = 1.0/resolution.y;
+float blurSize = 0.3/resolution.y;
 
    vec4 sum = vec4(0.0);
    sum += texture2D(gm_BaseTexture, vec2(v_texcoord.x, v_texcoord.y- 4.0*blurSize)) * 0.05;
