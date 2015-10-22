@@ -14,7 +14,9 @@
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
-    <script>scripts\setup.gml</script>
+    <script>scripts\initialize.gml</script>
+    <script>scripts\setupParticles.gml</script>
+    <script>scripts\setupEnvironment.gml</script>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shd_gaussian_horizontal.shader</shader>

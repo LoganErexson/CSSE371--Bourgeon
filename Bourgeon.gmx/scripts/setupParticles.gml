@@ -1,7 +1,4 @@
-// Randomize the seed!
-randomize();
-
-// Chem cloud particle stuff
+// Setup particle systems
 global.P_System = part_system_create();
 part_system_depth(global.P_System, 0);             //Particles draw in front of everything
 
