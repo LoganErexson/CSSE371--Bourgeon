@@ -33,6 +33,8 @@ maxHeight = sprite_height*image_yscale*2;
 maxWidth = sprite_width*image_xscale*2;
 scaleFactor = 1;
 image_blend=random(c_white)
+image_index = 1
+image_speed = 0
 shape = "circle"
 
 hasPili = false;
@@ -46,8 +48,8 @@ canPhotosythesis = false;
 canOxidativeMetabolise = false;
 canPhagocytosis = false;
 
-ciliaLevel = 2;
-flagellaLevel = 2;
+ciliaLevel = 0;
+flagellaLevel = 1;
 cellSpeed =1;
 if(flagellaLevel == 0)
 {
@@ -146,7 +148,16 @@ alarm[0] = 10
             <string>if(isPlayer){
     if(abs(x-mouse_x)&gt;sprite_height/2 ||abs(y-mouse_y)&gt;sprite_height/2)
     {
-        image_speed = 0.5
+        if(ciliaLevel!=0)
+        {
+            if((image_index &lt;2)||(image_index==4)) { image_index = 2 }
+            else if(image_index ==2){ image_index = 3}
+            else {image_index = 4}
+        }
+        else{
+            if(image_index ==0) { image_index = 1 }
+            else { image_index = 0}
+        }
         move_towards_point (mouse_x, mouse_y, cellSpeed)
         image_angle= direction+180
         
@@ -163,6 +174,7 @@ alarm[0] = 10
     {
         // Player is not moving
         speed = 0
+        if(ciliaLevel != 0) { image_index = 3 }
         image_speed = 0
     }
 }
