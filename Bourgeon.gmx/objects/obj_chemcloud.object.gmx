@@ -27,9 +27,9 @@
             <kind>1</kind>
             <string>Particle_Emitter = part_emitter_create(global.P_System);
 
-clouddiameter = random(500) + 100;
-part_emitter_region(global.P_System, Particle_Emitter, x, x+clouddiameter, y, y+clouddiameter, ps_shape_ellipse, ps_distr_linear);
-part_emitter_stream(global.P_System, Particle_Emitter, global.Particle1, 5);
+clouddiameter = random(350) + 170;
+part_emitter_region(global.P_System, Particle_Emitter, x, x+clouddiameter, y, y+clouddiameter, ps_shape_ellipse, ps_distr_gaussian);
+part_emitter_stream(global.P_System, Particle_Emitter, global.Particle1, 6);
 </string>
           </argument>
         </arguments>
