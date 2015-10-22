@@ -8,8 +8,8 @@
   <isometric>0</isometric>
   <speed>30</speed>
   <persistent>0</persistent>
-  <colour>16777215</colour>
-  <showcolour>0</showcolour>
+  <colour>12615680</colour>
+  <showcolour>-1</showcolour>
   <code>script_execute(setup);
 instance_create(random(room_width), random(room_height), obj_chemcloud);
 

@@ -113,10 +113,20 @@ alarm[0] = 10
         image_speed = 0.5
         move_towards_point (mouse_x, mouse_y, cellSpeed)
         image_angle= direction+180
+        
+        // Update background
+        r = 132;
+        g = 112;
+        b = 255;
+        scaler = r/room_height;
+        scaleg = g/room_height;
+        scaleb = b/room_height;
+        background_colour = make_colour_rgb(r - scaler*y, g-scaleg*y, b-scaleb*y);
     }
     else   
     {
-        speed =0
+        // Player is not moving
+        speed = 0
         image_speed = 0
     }
 }
