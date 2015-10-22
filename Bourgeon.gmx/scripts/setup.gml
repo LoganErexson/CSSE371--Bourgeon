@@ -3,7 +3,11 @@ randomize();
 
 // Chem cloud particle stuff
 global.P_System = part_system_create();
-part_system_depth(global.P_System, 0);                    //Particles draw on top of everything
+part_system_depth(global.P_System, 0);             //Particles draw in front of everything
+
+global.P_System_Behind = part_system_create();
+part_system_depth(global.P_System_Behind, 1);                    //Particles draw behind everything
+
 
 // Bubble
 global.Bubble = part_type_create();

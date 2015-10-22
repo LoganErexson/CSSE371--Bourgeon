@@ -10,8 +10,7 @@
   <persistent>0</persistent>
   <colour>12615680</colour>
   <showcolour>-1</showcolour>
-  <code>script_execute(setup);
-instance_create(random(room_width), random(room_height), obj_chemcloud);
+  <code>instance_create(random(room_width), random(room_height), obj_chemcloud);
 
 // Create background floaties
 Particle_Emitter = part_emitter_create(global.P_System);

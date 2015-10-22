@@ -59,6 +59,42 @@ if(flagellaLevel == 0)
 if(!isPlayer){
     alarm[0] = 10;
 }
+
+// Set up bubble emitter
+Particle_Emitter = part_emitter_create(global.P_System_Behind);
+alarm[1] = 30;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(speed != 0)
+{
+    //The cell is moving so we move the particle emitter
+    part_emitter_region(global.P_System_Behind, Particle_Emitter, x, x, y, y, ps_shape_ellipse, ps_distr_linear);
+    
+    //Now to burst particles
+    part_emitter_burst(global.P_System_Behind, Particle_Emitter, global.Bubble, 2);
+}
+
+alarm[1] = 5;
 </string>
           </argument>
         </arguments>
