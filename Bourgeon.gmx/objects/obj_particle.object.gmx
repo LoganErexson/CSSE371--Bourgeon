@@ -25,15 +25,12 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(random(100)&gt;95)
-{
-    isGlucose = true
-}
-else
-{
-    isGlucose = false
-    image_blend = random(c_white)
-}
+            <string>image_xscale = random(0.3) + 0.15;
+image_yscale = image_xscale;
+
+parttype = random(array_length_1d(global.particles));
+
+image_blend = global.partcolors[parttype];
 </string>
           </argument>
         </arguments>
