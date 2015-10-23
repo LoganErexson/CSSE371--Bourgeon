@@ -58,6 +58,8 @@ canPhagocytosis = false;
 
 ciliaLevel = irandom(3)-1;
 flagellaLevel = irandom(3)-1;
+if(ciliaLevel&lt;0) { ciliaLevel = 0}
+if(flagellaLevel&lt;0) { flagellaLevel = 0}
 cellSpeed =1;
 if(flagellaLevel == 0)
 {
