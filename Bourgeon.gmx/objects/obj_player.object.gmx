@@ -72,9 +72,10 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_healthbar(10, 10, 110, 25, cellHealth, c_black, c_dkgray, c_red, 0, true, true);
-
+            <string>draw_healthbar(10, 10, 110, 25, cellHealth / maxHealth * 100, c_black, c_dkgray, c_red, 0, true, true);
+draw_healthbar(10, 40, 110, 25, ATP, c_black, c_green, c_lime, 0, true, true);
 draw_set_color(c_white);
+draw_text(120, 17, string(cellHealth)+"/"+string(maxHealth))
 draw_text(10, 60, string(temperature) + "F");
 if (cellHealth &lt;= 0)
 {

@@ -27,15 +27,17 @@
             <kind>1</kind>
             <string>// Cell attributes
 ATP = 0;
-cellHealth = 100;
 temperature = 70;
 canBeHurt = true;
 
-scaleFactor = 0.5;
+scaleFactor = 0.5+ 0.25*random(5);
 image_yscale = scaleFactor * 0.30
 image_xscale = scaleFactor * 0.30
 maxHeight = sprite_height*image_yscale*2;
 maxWidth = sprite_width*image_xscale*2;
+
+maxHealth = 100*scaleFactor
+cellHealth = maxHealth
 
 image_blend=random(c_white)
 image_index = 1
