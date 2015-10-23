@@ -32,19 +32,13 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_mainmenu</room>
-    <room>rooms\rm_main</room>
   </rooms>
-  <constants number="3">
-    <constant name="bg_r">29</constant>
-    <constant name="bg_g">95</constant>
-    <constant name="bg_b">209</constant>
-  </constants>
   <help>
     <rtf>help.rtf</rtf>
   </help>
   <TutorialState>
-    <IsTutorial>-1</IsTutorial>
-    <TutorialName>C:\Users\erexsolr\AppData\Local\GameMaker-Studio\tutorials\08_Levels_And_Saving\</TutorialName>
+    <IsTutorial>0</IsTutorial>
+    <TutorialName></TutorialName>
     <TutorialPage>0</TutorialPage>
   </TutorialState>
 </assets>

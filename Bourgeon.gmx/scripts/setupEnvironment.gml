@@ -18,4 +18,12 @@ for(i = 0; i<num_particles; i++)
     instance_create(random(room_width), random(room_height), obj_particle);
 }
 
-// TODO Generate other cells
+// Generate other cells
+var max_cells = 15;
+var min_cells = 7;
+var num_cells = random(max_cells - min_cells) + min_cells;
+var i;
+for(i = 0; i<num_cells; i++)
+{
+    instance_create(random(room_width), random(room_height), obj_cell);
+}
