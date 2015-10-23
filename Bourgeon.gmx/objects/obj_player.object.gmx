@@ -39,7 +39,7 @@
             }
             else
             {
-                if(((image_index &lt;4)&amp;&amp;(image_index&gt;70))||(image_index==5)) 
+                if(((image_index &lt;4)||(image_index&gt;7))||(image_index==5)) 
                 { 
                     image_index = 4 
                 }
@@ -72,7 +72,22 @@ else
 {
     // Player is not moving
     speed = 0
-    if(ciliaLevel != 0) { image_index = 3 }
+    if(ciliaLevel != 0) 
+    { 
+        if(flagellaLevel!=0){
+            image_index = 8
+        } 
+        else{
+            image_index = 5 
+        }
+    }
+    else{
+        if(flagellaLevel!=0)
+        {
+            image_index = 3
+        }
+
+    }
     image_speed = 0
 }
 </string>
