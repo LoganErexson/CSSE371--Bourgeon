@@ -114,9 +114,20 @@ else
             <kind>1</kind>
             <string>draw_healthbar(10, 10, 110, 25, cellHealth / maxHealth * 100, c_black, c_dkgray, c_red, 0, true, true);
 draw_healthbar(10, 40, 110, 25, ATP, c_black, c_green, c_lime, 0, true, true);
-draw_set_color(c_white);
+
 draw_text(120, 17, string(cellHealth)+"/"+string(maxHealth))
+
+if(temperature &lt; minTemp || temperature &gt; maxTemp)
+{
+    draw_set_color(c_red);
+}
+else
+{
+    draw_set_color(c_white);
+}
 draw_text(10, 60, string(temperature) + "F");
+draw_set_color(c_white); // Reset draw color
+
 if (cellHealth &lt;= 0)
 {
     instance_destroy();

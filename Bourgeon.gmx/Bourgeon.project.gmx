@@ -34,10 +34,12 @@
     <room>rooms\rm_mainmenu</room>
     <room>rooms\rm_main</room>
   </rooms>
-  <constants number="3">
+  <constants number="5">
     <constant name="bg_r">29</constant>
     <constant name="bg_g">95</constant>
     <constant name="bg_b">209</constant>
+    <constant name="temp_at_surface">65</constant>
+    <constant name="temp_at_depths">-10</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

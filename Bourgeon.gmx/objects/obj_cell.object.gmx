@@ -51,25 +51,28 @@ for(i=0; i&lt;array_length_1d(global.particles); i++)
 
 
 ATP = 0;
-temperature = 70;
+temperature = (temp_at_surface+temp_at_depths)/2;
 canBeHurt = true;
 scaleFactor = 0.5+ 0.25*random(5);
-image_yscale = scaleFactor * 0.30
-image_xscale = scaleFactor * 0.30
+image_yscale = scaleFactor * 0.30;
+image_xscale = scaleFactor * 0.30;
 maxHeight = sprite_height*image_yscale*2;
 maxWidth = sprite_width*image_xscale*2;
-image_counter = 0
+image_counter = 0;
 
-maxHealth = 100*scaleFactor
-cellHealth = maxHealth
+maxHealth = 100*scaleFactor;
+cellHealth = maxHealth;
 
-image_blend=random(c_white)
-image_speed = 0
-image_index = 0
-shape = "circle"
+image_blend=random(c_white);
+image_speed = 0;
+image_index = 0;
+shape = "circle";
 
 hasCellWall = false;
-tempResitance = 0;
+
+maxTemp = temp_at_surface*1.15 - random(abs(temp_at_surface) * 0.3);
+minTemp = temp_at_depths*1.15 + random(abs(temp_at_depths) * 0.3);
+
 visionLevel = 0;
 
 canGlycosis = false;
@@ -179,10 +182,19 @@ alarm[2] = 10;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(speed != 0)
-{
-    temperature = 65 - (y * 0.04);
+            <string>// Update the cell's temperature based on depth
+temperature = temp_at_surface - (y * (temp_at_surface - temp_at_depths)/room_height);
 
+// Reduce the cell's health if the temperature is unbearable
+if(temperature &gt; maxTemp || temperature &lt; minTemp)
+{
+    cellHealth -= 10;
+    canBeHurt = false;
+}
+
+// If the cell is moving, move the particle emitter
+if(speed != 0)
+{
     //The cell is moving so we move the particle emitter
     part_emitter_region(global.P_System_Behind, Particle_Emitter, x, x, y, y, ps_shape_ellipse, ps_distr_linear);
     
@@ -244,6 +256,7 @@ if (cellHealth &lt;= 0)
 {
     instance_destroy();
 }
+
 if(image_counter &lt;= 4) 
     {
         if(ciliaLevel!=0)
