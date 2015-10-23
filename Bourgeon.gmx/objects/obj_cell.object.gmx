@@ -73,7 +73,7 @@ hasCellWall = false;
 maxTemp = temp_at_surface*1.10 - random(abs(temp_at_surface) * 0.3);
 minTemp = temp_at_depths*1.10 + random(abs(temp_at_depths) * 0.3);
 
-visionLevel = 0;
+visionLevel = random(1);
 
 isPhototropic = false;
 canPhotosythesis = false;

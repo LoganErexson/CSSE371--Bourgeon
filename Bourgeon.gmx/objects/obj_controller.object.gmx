@@ -29,6 +29,9 @@
 fourTwo = 42;
 uni_resolution_hoz = shader_get_uniform(shd_gaussian_horizontal,"resolution");
 uni_resolution_vert = shader_get_uniform(shd_gaussian_vertical,"resolution");
+uni_player_vision_hoz = shader_get_uniform(shd_gaussian_horizontal, "visionLevel");
+uni_player_vision_vert = shader_get_uniform(shd_gaussian_vertical, "visionLevel");
+
 //var_resolution_x = view_wview;
 //var_resolution_y = view_hview;
 var_resolution_x = view_xview[0]+view_wview[0];
@@ -69,15 +72,17 @@ final_surface = surface_create(1601,901);
 //Do horizontal blur first
 surface_set_target(final_surface);
 if shader_enabled shader_set(shd_gaussian_horizontal);
-    shader_set_uniform_f(uni_resolution_hoz, var_resolution_x, var_resolution_y);
-    draw_surface(application_surface,0,0);
+shader_set_uniform_f(uni_resolution_hoz, var_resolution_x, var_resolution_y);
+shader_set_uniform_f(uni_player_vision_hoz, instance_find(obj_player, 0).visionLevel); 
+draw_surface(application_surface,0,0);
 shader_reset();
 surface_reset_target();
 
 //Do vertical blur last
 if shader_enabled shader_set(shd_gaussian_vertical);
-    shader_set_uniform_f(uni_resolution_vert, var_resolution_x, var_resolution_y);
-    draw_surface(final_surface,0,0);
+shader_set_uniform_f(uni_resolution_vert, var_resolution_x, var_resolution_y);
+shader_set_uniform_f(uni_player_vision_vert, instance_find(obj_player, 0).visionLevel);
+draw_surface(final_surface,0,0);
 shader_reset();
 
 draw_text(0,0,"Real FPS: "+string(fps_real));
