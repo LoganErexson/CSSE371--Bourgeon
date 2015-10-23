@@ -25,17 +25,14 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_speed = 0
-
-if(random(100)&gt;95)
+            <string>if(random(100)&gt;95)
 {
     isGlucose = true
-    image_index = irandom(image_number-2)+1;
 }
 else
 {
     isGlucose = false
-    image_index = 0
+    image_blend = random(c_white)
 }
 </string>
           </argument>

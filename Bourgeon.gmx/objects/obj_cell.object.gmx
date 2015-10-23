@@ -31,9 +31,12 @@ cellHealth = 100;
 temperature = 70;
 canBeHurt = true;
 
+scaleFactor = 0.5;
+image_yscale = scaleFactor * 0.30
+image_xscale = scaleFactor * 0.30
 maxHeight = sprite_height*image_yscale*2;
 maxWidth = sprite_width*image_xscale*2;
-scaleFactor = 1;
+
 image_blend=random(c_white)
 image_index = 1
 image_speed = 0
@@ -265,7 +268,6 @@ if (cellHealth &lt;= 0)
     instance_destroy()
 }
 if((image_yscale*sprite_height&lt;maxHeight)&amp;&amp;(image_xscale*sprite_width&lt;maxWidth)) {
-    image_blend=random(c_white)
     ATP = ATP +1
     image_xscale = 1.05*image_xscale
     image_yscale = 1.05*image_yscale
