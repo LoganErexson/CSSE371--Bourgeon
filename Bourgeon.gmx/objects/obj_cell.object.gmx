@@ -243,9 +243,19 @@ alarm[1] = 10;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>direction = random(360)
-image_angle = direction+180
+            <string>target = cellAI( x, y, self, 300)
+if(target[0] == noone){
+    direction = random(360)
+}
+else if(target[1]&lt;0){
+    direction = point_direction(x,y, target[0].x, target[0].y)+180
+}
+else {
+    direction = point_direction(x,y, target[0].x, target[0].y)
+}
+image_angle = direction +180
 speed = 2
+
 alarm[0] = 10
 </string>
           </argument>

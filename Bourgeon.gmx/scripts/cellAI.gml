@@ -46,7 +46,7 @@ for (var i = 0; i <array_length_1d(_cell_list); i++ )
 for (var i = 0; i <array_length_1d(_particle_list); i++ )
 {
     _distance = point_distance(_particle_list[i].x, _particle_list[i].y, _x, _y)
-    if (_particle_list[i] && _distance > _radius && _self.canConsumeParticle[_particle_list.parttype])
+    if (_particle_list[i] && _distance > _radius && _self.canConsumeParticle[_particle_list[i].parttype])
     {
         _currentVal = _distance*100
         
@@ -61,7 +61,7 @@ for (var i = 0; i <array_length_1d(_particle_list); i++ )
 for (var i = 0; i <array_length_1d(_cloud_list); i++ )
 {
     _distance = point_distance(_cloud_list[i].x, _cloud_list[i].y, _x, _y)+ _cloud_list[i].clouddiameter/2
-    if (_cloud_list[i] && _distance > _radius && !isResistantToChemical[_cloud_list[i].chemtype)
+    if (_cloud_list[i] && _distance > _radius && !isResistantToChemical[_cloud_list[i].chemtype])
     {
         _currentVal = -_distance*1000
         
@@ -75,11 +75,12 @@ for (var i = 0; i <array_length_1d(_cloud_list); i++ )
 }
 
 if(_maxArray ==0)
-    _inst = _cell_list[_maxIndex]
+    _inst[0] = _cell_list[_maxIndex]
 else if(_maxArray == 1)
-    _inst = _particle_list[_maxIndex]
+    _inst[0] = _particle_list[_maxIndex]
 else
-    _inst = _cloud_list[_maxIndex]
-
+    _inst[0] = _cloud_list[_maxIndex]
+    
+_inst[1] = _maxVal
 // And return the value
 return _inst;
