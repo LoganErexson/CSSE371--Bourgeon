@@ -76,7 +76,7 @@ canGlycosis = false;
 isPhototropic = false;
 canPhotosythesis = false;
 canOxidativeMetabolise = false;
-canPhagocytosis = false;
+canPhagocytosis = true;
 
 
 ciliaLevel = irandom(3)-1;
@@ -338,6 +338,39 @@ if(image_counter &lt;= 4)
     if((image_yscale*sprite_height&lt;maxHeight)&amp;&amp;(image_xscale*sprite_width&lt;maxWidth)) {
         image_xscale = 1.05*image_xscale
         image_yscale = 1.05*image_yscale
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_cell">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(other.canPhagocytosis &amp;&amp; other.scaleFactor &gt; scaleFactor)
+{
+    instance_destroy();
+}
+else if (canPhagocytosis &amp;&amp; scaleFactor &gt; other.scaleFactor)
+{
+    with(other)
+    {
+        instance_destroy();
     }
 }
 </string>
