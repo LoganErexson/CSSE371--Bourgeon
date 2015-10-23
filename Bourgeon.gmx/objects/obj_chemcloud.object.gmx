@@ -34,7 +34,7 @@ image_xscale = (clouddiameter/10)*image_xscale*0.7;
 image_yscale = (clouddiameter/10)*image_yscale*0.7;
 
 part_emitter_region(global.P_System, Particle_Emitter, x, x+clouddiameter, y, y+clouddiameter, ps_shape_ellipse, ps_distr_gaussian);
-part_emitter_stream(global.P_System, Particle_Emitter, global.chemparticles[chemtype], 6);
+part_emitter_stream(global.P_System, Particle_Emitter, global.chemparticles[chemtype], 5);
 </string>
           </argument>
         </arguments>
