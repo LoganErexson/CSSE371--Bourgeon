@@ -3,7 +3,7 @@
   <spriteName>spr_cell</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-1</depth>
   <persistent>0</persistent>
   <parentName>obj_cell</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -41,13 +41,7 @@
     image_angle= direction+180
     
     // Update background
-    r = 132;
-    g = 112;
-    b = 255;
-    scaler = r/room_height;
-    scaleg = g/room_height;
-    scaleb = b/room_height;
-    background_colour = make_colour_rgb(r - scaler*y, g-scaleg*y, b-scaleb*y);
+    background_colour = make_colour_rgb(bg_r - scaler*y, bg_g-scaleg*y, bg_b-scaleb*y);
 }
 else   
 {
@@ -55,6 +49,36 @@ else
     speed = 0
     if(ciliaLevel != 0) { image_index = 3 }
     image_speed = 0
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="64">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_healthbar(10, 10, 110, 25, cellHealth, c_black, c_dkgray, c_red, 0, true, true);
+
+draw_set_color(c_white);
+draw_text(10, 60, string(temperature) + "F");
+if (cellHealth &lt;= 0)
+{
+    instance_destroy();
 }
 </string>
           </argument>
