@@ -27,8 +27,6 @@
             <kind>1</kind>
             <string>ATP = 0;
 cellHealth = 100;
-isPlayer = true;
-//Comment
 canBeHurt = true;
 
 maxHeight = sprite_height*image_yscale*2;
@@ -39,7 +37,6 @@ image_index = 1
 image_speed = 0
 shape = "circle"
 
-hasPili = false;
 hasCellWall = false;
 tempResitance = 0;
 visionLevel = 0;
@@ -60,9 +57,11 @@ if(flagellaLevel == 0)
 {
     cellSpeed += 3*flagellaLevel -ciliaLevel+1
 }
-if(!isPlayer){
+if(object_get_name(id.object_index)!="obj_player")
+{
     alarm[0] = 10;
 }
+
 
 // Set up bubble emitter
 Particle_Emitter = part_emitter_create(global.P_System_Behind);
@@ -180,62 +179,6 @@ alarm[0] = 10
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if(isPlayer){
-    if(abs(x-mouse_x)&gt;sprite_height/2 ||abs(y-mouse_y)&gt;sprite_height/2)
-    {
-        if(ciliaLevel!=0)
-        {
-            if((image_index &lt;2)||(image_index==4)) { image_index = 2 }
-            else if(image_index ==2){ image_index = 3}
-            else {image_index = 4}
-        }
-        else{
-            if(image_index ==0) { image_index = 1 }
-            else { image_index = 0}
-        }
-        move_towards_point (mouse_x, mouse_y, cellSpeed)
-        image_angle= direction+180
-        
-        // Update background
-        r = 132;
-        g = 112;
-        b = 255;
-        scaler = r/room_height;
-        scaleg = g/room_height;
-        scaleb = b/room_height;
-        background_colour = make_colour_rgb(r - scaler*y, g-scaleg*y, b-scaleb*y);
-    }
-    else   
-    {
-        // Player is not moving
-        speed = 0
-        if(ciliaLevel != 0) { image_index = 3 }
-        image_speed = 0
-    }
-}
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="4" ename="obj_chemcloud">
       <action>
         <libid>1</libid>
@@ -284,7 +227,6 @@ alarm[0] = 10
     instance_destroy()
 }
 if((image_yscale*sprite_height&lt;maxHeight)&amp;&amp;(image_xscale*sprite_width&lt;maxWidth)) {
-    image_blend=random(c_white)
     ATP = ATP +1
     image_xscale = 1.05*image_xscale
     image_yscale = 1.05*image_yscale

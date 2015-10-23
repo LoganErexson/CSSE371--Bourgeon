@@ -28,6 +28,7 @@
     <object>objects\obj_wall</object>
     <object>objects\obj_chemcloud</object>
     <object>objects\obj_controller</object>
+    <object>objects\obj_player</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_mainmenu</room>
@@ -37,7 +38,7 @@
     <rtf>help.rtf</rtf>
   </help>
   <TutorialState>
-    <IsTutorial>-1</IsTutorial>
+    <IsTutorial>0</IsTutorial>
     <TutorialName>C:\Users\erexsolr\AppData\Local\GameMaker-Studio\tutorials\08_Levels_And_Saving\</TutorialName>
     <TutorialPage>0</TutorialPage>
   </TutorialState>
