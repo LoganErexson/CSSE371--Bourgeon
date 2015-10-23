@@ -70,8 +70,8 @@ shape = "circle";
 
 hasCellWall = false;
 
-maxTemp = temp_at_surface*1.15 - random(abs(temp_at_surface) * 0.3);
-minTemp = temp_at_depths*1.15 + random(abs(temp_at_depths) * 0.3);
+maxTemp = temp_at_surface*1.10 - random(abs(temp_at_surface) * 0.3);
+minTemp = temp_at_depths*1.10 + random(abs(temp_at_depths) * 0.3);
 
 visionLevel = 0;
 
@@ -86,7 +86,7 @@ ciliaLevel = irandom(3)-1;
 flagellaLevel = irandom(3)-1;
 if(ciliaLevel&lt;0) { ciliaLevel = 0}
 if(flagellaLevel&lt;0) { flagellaLevel = 0}
-cellSpeed =flagellaLevel +ciliaLevel
+cellSpeed =flagellaLevel +ciliaLevel+1
 
 if(object_get_name(id.object_index) != "obj_player")
 {

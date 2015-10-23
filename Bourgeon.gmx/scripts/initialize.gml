@@ -13,11 +13,11 @@ global.chemcolors[1] = c_yellow;
 global.chemicals[2] = "Ethanol";
 global.chemcolors[2] = c_lime;
 
-global.chemical[3] = "KCL";
+global.chemicals[3] = "KCL";
 global.chemcolors[3] = c_orange;
 
-global.chemical[4] = "Triethylene Glycol";
-global.chemical[4] = c_aqua;
+global.chemicals[4] = "Triethylene Glycol";
+global.chemcolors[4] = c_aqua;
 
 // Add more chemicals as needed....
 // global.chemicals[i] = "Chemical Name";
