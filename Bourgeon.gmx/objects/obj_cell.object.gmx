@@ -79,21 +79,14 @@ canGlycosis = false;
 isPhototropic = false;
 canPhotosythesis = false;
 canOxidativeMetabolise = false;
-canPhagocytosis = true;
+canPhagocytosis = true; //Engulf smaller cells
 
 
 ciliaLevel = irandom(3)-1;
 flagellaLevel = irandom(3)-1;
 if(ciliaLevel&lt;0) { ciliaLevel = 0}
 if(flagellaLevel&lt;0) { flagellaLevel = 0}
-cellSpeed =1;
-if(flagellaLevel == 0)
-{
-    cellSpeed += ciliaLevel
-} else
-{
-    cellSpeed += 3*flagellaLevel -ciliaLevel+1
-}
+cellSpeed =flagellaLevel +ciliaLevel
 
 if(object_get_name(id.object_index) != "obj_player")
 {
@@ -113,6 +106,32 @@ alarm[1] = 30;
 
 // Alarm to see if the cell can be hurt
 alarm[2] = 10;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>for(i=0;i&lt;ATP/10;i++)
+{
+    instance_create(x+random(25), y+random(25), obj_particle)
+}
 </string>
           </argument>
         </arguments>
@@ -381,6 +400,7 @@ if(image_counter &lt;= 4)
 }
 else if (canPhagocytosis &amp;&amp; scaleFactor &gt; other.scaleFactor)
 {
+    ATP += 10*other.scaleFactor
     with(other)
     {
         instance_destroy();
