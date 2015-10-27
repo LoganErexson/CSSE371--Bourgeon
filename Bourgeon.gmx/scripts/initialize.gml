@@ -1,8 +1,11 @@
 // Randomize the seed!
 randomize();
 
+// Setup general global variables
+globalvar playerIsAlive;            // Whether or not the player lives
+
 // Setup chemical and corresponding color array
-globalvar chemicals, chemcolors
+globalvar chemicals, chemcolors;
 
 global.chemicals[0] = "NaCl";
 global.chemcolors[0] = c_white;

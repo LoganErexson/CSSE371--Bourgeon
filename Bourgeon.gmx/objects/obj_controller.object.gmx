@@ -69,11 +69,20 @@ final_surface = surface_create(1601,901);
 //var_mouse_pos_x = mouse_x;
 //var_mouse_pos_y = mouse_y;
 
+if(global.playerIsAlive)
+{
+    vLevel = instance_find(obj_player, 0).visionLevel;
+}
+else
+{
+    vLevel = 1.0;
+}
+
 //Do horizontal blur first
 surface_set_target(final_surface);
 if shader_enabled shader_set(shd_gaussian_horizontal);
 shader_set_uniform_f(uni_resolution_hoz, var_resolution_x, var_resolution_y);
-shader_set_uniform_f(uni_player_vision_hoz, instance_find(obj_player, 0).visionLevel); 
+shader_set_uniform_f(uni_player_vision_hoz, vLevel); 
 draw_surface(application_surface,0,0);
 shader_reset();
 surface_reset_target();
@@ -81,7 +90,7 @@ surface_reset_target();
 //Do vertical blur last
 if shader_enabled shader_set(shd_gaussian_vertical);
 shader_set_uniform_f(uni_resolution_vert, var_resolution_x, var_resolution_y);
-shader_set_uniform_f(uni_player_vision_vert, instance_find(obj_player, 0).visionLevel);
+shader_set_uniform_f(uni_player_vision_vert, vLevel);
 draw_surface(final_surface,0,0);
 shader_reset();
 

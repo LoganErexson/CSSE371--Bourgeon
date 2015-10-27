@@ -89,6 +89,9 @@ cellSpeed =flagellaLevel +ciliaLevel+1
 speed = cellSpeed
 if(object_get_name(id.object_index)=="obj_player")
 {
+    // Important for the blur effect
+    global.playerIsAlive = true;
+
     // Important for background changing stuff
     scaler = bg_r/room_height;
     scaleg = bg_g/room_height;
