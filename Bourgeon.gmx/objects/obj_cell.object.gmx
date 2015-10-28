@@ -99,7 +99,7 @@ if(object_get_name(id.object_index)=="obj_player")
 }
 else
 {
-    alarm[0] =10
+    alarm[0] = 3
 }
 
 // Set up bubble emitter
@@ -246,9 +246,9 @@ alarm[1] = 10;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>direction = cellAI(self.x, self.y, self, 300)
+            <string>direction = cellAI(self, 3, 300)
 image_angle = direction +180
-alarm[0] = 10
+alarm[0] = 3
 </string>
           </argument>
         </arguments>
