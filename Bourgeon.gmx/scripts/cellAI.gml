@@ -127,21 +127,41 @@ for (var i = 0; i <array_length_1d(_particle_list); i++ )
     }
 }
 
-/*
+
 for (var i = 0; i <array_length_1d(_cloud_list); i++ )
 {
     _distance = point_distance(_cloud_list[i].x, _cloud_list[i].y, _cell.x, _cell.y)+ _cloud_list[i].clouddiameter/2
     
     for(var j = 0; j < array_length_1d(_directions); j++)
     {
-        _newX = _cell.x + _cell.speed*10*cos(_directions[j])
-        _newY = _cell.y + _cell.speed*10*sin(_directions[j])
+        _newX = _cell.x + _cell.speed*_turnSize*cos(_directions[j])
+        _newY = _cell.y + _cell.speed*_turnSize*sin(_directions[j])
         _newDistance= point_distance(_cloud_list[i].x, _cloud_list[i].y, _newX, _newY)
         
-        _dirValues[j] += (_newDistance-_distance)
+        if(_newDistance<3*_radius/4)
+        {
+            if(_newDistance<_radius/2)
+            {
+                if(_newDistance<_radius/3)
+                {
+                    _dirValues[j] += 12*(_newDistance-_distance)
+                }
+                else
+                {
+                    _dirValues[j] += 9*(_newDistance-_distance)
+                }
+            }
+            else
+            {
+                _dirValues[j] += 6*(_newDistance-_distance)
+            }
+        }
+        else
+        {
+            _dirValues[j] += 3*(_newDistance-_distance)
+        }
     }
 }
-*/
 
 
 maxValue = -99999999
