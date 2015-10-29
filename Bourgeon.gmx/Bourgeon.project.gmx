@@ -10,6 +10,7 @@
     <sprite>sprites\spr_particle</sprite>
     <sprite>sprites\spr_wall</sprite>
     <sprite>sprites\spr_chemcloud</sprite>
+    <sprite>sprites\sprite4</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -18,6 +19,7 @@
     <script>scripts\setupParticles.gml</script>
     <script>scripts\setupEnvironment.gml</script>
     <script>scripts\cellAI.gml</script>
+    <script>scripts\showCustomMessage.gml</script>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shd_gaussian_horizontal.shader</shader>
@@ -30,6 +32,7 @@
     <object>objects\obj_chemcloud</object>
     <object>objects\obj_controller</object>
     <object>objects\obj_player</object>
+    <object>objects\obj_messagebox</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_mainmenu</room>

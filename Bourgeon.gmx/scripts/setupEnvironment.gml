@@ -4,23 +4,21 @@ var min_clouds = 10;
 var num_clouds = random(max_clouds - min_clouds) + min_clouds;
 var i;
 
-if(global.playerIsAlive)
+// Only call this function if the player is alive because of the line below!!
+player = instance_find(obj_player, 0);
+
+for(i = 0; i<num_clouds; i++)
 {
-    player = instance_find(obj_player, 0);
+    var xval = random(room_width);
+    var yval = random(room_height);
+    var cloud = instance_create(xval, yval, obj_chemcloud);
     
-    for(i = 0; i<num_clouds; i++)
+    var cloudradius = cloud.clouddiameter/2;
+    if(point_distance(xval+(cloudradius), yval+(cloudradius), player.x, player.y) < cloudradius)
     {
-        var xval = random(room_width);
-        var yval = random(room_height);
-        var cloud = instance_create(xval, yval, obj_chemcloud);
-        
-        var cloudradius = cloud.clouddiameter/2;
-        if(point_distance(xval+(cloudradius), yval+(cloudradius), player.x, player.y) < cloudradius)
+        with(cloud)
         {
-            with(cloud)
-            {
-                instance_destroy();
-            }
+            instance_destroy();
         }
     }
 }
@@ -44,5 +42,13 @@ for(i = 0; i<num_cells; i++)
 {
     var xpos = random(room_width);
     var ypos = random(room_height);
-    instance_create(xpos, ypos, obj_cell);
+    var cell = instance_create(xpos, ypos, obj_cell);
+
+    if(point_distance(xpos, ypos, player.x, player.y) < 300*cell.visionLevel)
+    {
+        with(cell)
+        {
+            instance_destroy();
+        }
+    }
 }
