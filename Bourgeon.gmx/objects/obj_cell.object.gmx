@@ -68,18 +68,17 @@ cellHealth = maxHealth;
 image_blend=random(c_white);
 image_speed = 0;
 image_index = 0;
-shape = "circle";
+//shape = "circle";
 
-hasCellWall = false;
+//hasCellWall = false;
 
 maxTemp = temp_at_surface*1.10 - random(abs(temp_at_surface) * 0.3);
 minTemp = temp_at_depths*1.10 + random(abs(temp_at_depths) * 0.3);
 
 visionLevel = random_range(0.5, 1);
 
-isPhototropic = false;
-canPhotosythesis = false;
-canOxidativeMetabolise = false;
+//isPhototropic = false;
+//canPhotosythesis = false;
 canPhagocytosis = true; //Engulf smaller cells
 
 
