@@ -33,7 +33,7 @@ var chanceToHaveOneResistance = 0.2; // Chance that this cell will be resistant 
 var indexToHaveResistanceOn = -1;
 if(random(1) &lt; chanceToHaveOneResistance)
 {
-    indexToHaveResistanceOn = irandom(array_length_1d(global.chemicals));
+    indexToHaveResistanceOn = irandom(array_length_1d(global.chemicals)-1);
 }
 var i;
 for(i=0; i&lt;array_length_1d(global.chemicals); i++)
