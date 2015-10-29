@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Cell attributes
+            <string>isPlayer = object_get_name(id.object_index)=="obj_player";
+
+// Cell attributes
 
 // Chemicals this cell can withstand
 var chanceToHaveOneResistance = 0.2; // Chance that this cell will be resistant to 1 chemical type
@@ -87,7 +89,7 @@ if(ciliaLevel&lt;0) { ciliaLevel = 0}
 if(flagellaLevel&lt;0) { flagellaLevel = 0}
 cellSpeed =flagellaLevel +ciliaLevel+1
 speed = cellSpeed
-if(object_get_name(id.object_index)=="obj_player")
+if(isPlayer)
 {
     // Important for the blur effect
     global.playerIsAlive = true;
@@ -375,6 +377,10 @@ else
         image_yscale = 1.05*image_yscale
     }
 }
+else if (isPlayer &amp;&amp; !global.messageShowing)
+{
+    showCustomMessage(400, 10, "Your cell is incapable of consuming " + global.particles[other.parttype], 1, 80);
+}
 </string>
           </argument>
         </arguments>
@@ -408,58 +414,6 @@ else
 </string>
           </argument>
         </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>512</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_draw_ellipse</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>0</kind>
-            <string>x+300*visionLevel</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>y+300 * visionLevel</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>x-300 * visionLevel</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>y-300 * visionLevel</string>
-          </argument>
-          <argument>
-            <kind>4</kind>
-            <string>1</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>500</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring>draw_self();</codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
       </action>
     </event>
   </events>
