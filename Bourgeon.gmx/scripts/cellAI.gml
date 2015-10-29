@@ -58,6 +58,7 @@ _directions[15] = 0;
 _directions[0] = 0; _directions[1] = pi/6; _directions[2] = pi/4; _directions[3] = pi/3; _directions[4] =pi/2; _directions[5] = 2*pi/3;
 _directions[6] = 3*pi/4; _directions[7] = 5*pi/6; _directions[8] = pi; _directions[9] = 7*pi/6; _directions[10] = 5*pi/4; _directions[11] = 4*pi/3; 
 _directions[12] = 3*pi/2; _directions[13] = 5*pi/3; _directions[14] = 7*pi/4; _directions[15] = 11*pi/6; 
+var _dirValues;
 _dirValues[15] = 0;
 
 
@@ -70,7 +71,7 @@ for (var i = 0; i <array_length_1d(_cell_list); i++ )
         _newX = _cell.x + _cell.speed*_turnSize*cos(_directions[j])
         _newY = _cell.y + _cell.speed*_turnSize*sin(_directions[j])
         _newDistance= point_distance(_cell_list[i].x, _cell_list[i].y, _newX, _newY)
-        if((_cell.scaleFactor - _cell_list[i].scaleFactor)>0){
+        if((_cell.image_xscale - _cell_list[i].image_xscale)>0){
             _dirValues[j] += 3*(_distance-_newDistance)
         }
         else{
