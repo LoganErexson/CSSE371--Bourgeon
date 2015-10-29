@@ -10,6 +10,9 @@
     <sprite>sprites\spr_particle</sprite>
     <sprite>sprites\spr_wall</sprite>
     <sprite>sprites\spr_chemcloud</sprite>
+    <sprites name="Start Menu">
+      <sprite>sprites\spr_start_button</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -30,6 +33,9 @@
     <object>objects\obj_chemcloud</object>
     <object>objects\obj_controller</object>
     <object>objects\obj_player</object>
+    <objects name="Start Menu">
+      <object>objects\obj_start_button</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_mainmenu</room>
