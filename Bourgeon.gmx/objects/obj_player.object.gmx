@@ -48,7 +48,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(abs(x-mouse_x)&gt;sprite_height/2 ||abs(y-mouse_y)&gt;sprite_height/2)
+            <string>if(abs(x-mouse_x)&gt;sprite_width/2 ||abs(y-mouse_y)&gt;sprite_height/2)
 {
     if(image_counter &lt;= 4) 
     {
