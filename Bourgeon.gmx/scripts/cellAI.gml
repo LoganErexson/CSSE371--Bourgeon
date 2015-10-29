@@ -14,15 +14,19 @@ _inst = noone;
 
 // First, make a list of all instances of each type
 var j =0;
-for (var i = 0; i < instance_number(obj_cell); i++ )
+if(_cell.canPhagocytosis)
 {
-    _next_cell = instance_find(obj_cell, i);
-    _distance = point_distance(_next_cell.x, _next_cell.y, _cell.x, _cell.y)
-    if(_distance <= _radius)
+    for (var i = 0; i < instance_number(obj_cell); i++ )
     {
-        _cell_list[j] = _next_cell
-        j++
+        _next_cell = instance_find(obj_cell, i);
+        _distance = point_distance(_next_cell.x, _next_cell.y, _cell.x, _cell.y)
+        if(_distance <= _radius && _distance!=0)
+        {
+            _cell_list[j] = _next_cell
+            j++
+        }
     }
+    
 }
 
 j =0
@@ -56,35 +60,48 @@ _directions[6] = 3*pi/4; _directions[7] = 5*pi/6; _directions[8] = pi; _directio
 _directions[12] = 3*pi/2; _directions[13] = 5*pi/3; _directions[14] = 7*pi/4; _directions[15] = 11*pi/6; 
 _dirValues[15] = 0;
 
-/*
+
 for (var i = 0; i <array_length_1d(_cell_list); i++ )
 {
     _distance = point_distance(_cell_list[i].x, _cell_list[i].y, _cell.x, _cell.y)
     
     for(var j = 0; j < array_length_1d(_directions); j++)
     {
-        _newX = _cell.x + _cell.speed*10*cos(_directions[j])
-        _newY = _cell.y + _cell.speed*10*sin(_directions[j])
-        _newDistance= point_distance(_cell_list[i].x, _cell_list[i].y, _cell.x, _cell.y)
+        _newX = _cell.x + _cell.speed*_turnSize*cos(_directions[j])
+        _newY = _cell.y + _cell.speed*_turnSize*sin(_directions[j])
+        _newDistance= point_distance(_cell_list[i].x, _cell_list[i].y, _newX, _newY)
         if((_cell.scaleFactor - _cell_list[i].scaleFactor)>0){
-            _dirValues[j] += (_distance-_newDistance)
+            _dirValues[j] += 3*(_distance-_newDistance)
         }
         else{
-            _dirValues[j] += (_newDistance-_distance)
+            _dirValues[j] += 3*(_newDistance-_distance)
         }
+        if(_newDistance<3*_radius/4)
+        {
+            if(_newDistance<_radius/2)
+            {
+                if(_newDistance<_radius/3)
+                {
+                    _dirValues[j] += 4*_dirValues[j]
+                }
+                else
+                    _dirValues[j] += 3*_dirValues[j]
+            }
+            else
+                _dirValues[j] += 2*_dirValues[j]
+        }
+        
     }
 }
-*/
+
 for (var i = 0; i <array_length_1d(_particle_list); i++ )
 {
     _distance = point_distance(_particle_list[i].x, _particle_list[i].y, _cell.x, _cell.y)
     
     for(var j = 0; j < array_length_1d(_directions); j++)
     {
-        cosVal =_cell.speed*_turnSize*cos(_directions[j])
-        _newX = _cell.x + cosVal
-        sinVal = _cell.speed*_turnSize*sin(_directions[j])
-        _newY = _cell.y + sinVal
+        _newX = _cell.x + _cell.speed*_turnSize*cos(_directions[j])
+        _newY = _cell.y + _cell.speed*_turnSize*sin(_directions[j])
         _newDistance= point_distance(_particle_list[i].x, _particle_list[i].y, _newX, _newY)
         if(_newDistance<3*_radius/4)
         {
@@ -118,7 +135,7 @@ for (var i = 0; i <array_length_1d(_cloud_list); i++ )
     {
         _newX = _cell.x + _cell.speed*10*cos(_directions[j])
         _newY = _cell.y + _cell.speed*10*sin(_directions[j])
-        _newDistance= point_distance(_cloud_list[i].x, _cloud_list[i].y, _cell.x, _cell.y)
+        _newDistance= point_distance(_cloud_list[i].x, _cloud_list[i].y, _newX, _newY)
         
         _dirValues[j] += (_newDistance-_distance)
     }
@@ -144,9 +161,9 @@ for(i = 0; i<array_length_1d(_directions); i++)
         maxValue = _dirValues[i]
     }
 }
-if(array_length_1d(maxDirections)>0){
+if(array_length_1d(maxDirections)>0&&array_length_1d(maxDirections)<16){
     _inst = maxDirections[irandom(array_length_1d(maxDirections)-1)]
     // And return the value
     return -_inst*180/pi
 }
-return _directions[irandom(array_length_1d(_directions))]
+return _directions[irandom(array_length_1d(_directions)-1)]
