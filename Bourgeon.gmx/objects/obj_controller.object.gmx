@@ -73,7 +73,7 @@ alarm[0] = 100;
     instance_create(random(room_width), random(room_height), obj_particle);
 }
 
-alarm[0] = 10;
+alarm[0] = 40;
 </string>
           </argument>
         </arguments>

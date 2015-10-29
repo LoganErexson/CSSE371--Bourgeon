@@ -3,9 +3,26 @@ var max_clouds = 10;
 var min_clouds = 10;
 var num_clouds = random(max_clouds - min_clouds) + min_clouds;
 var i;
-for(i = 0; i<num_clouds; i++)
+
+if(global.playerIsAlive)
 {
-    instance_create(random(room_width), random(room_height), obj_chemcloud);
+    player = instance_find(obj_player, 0);
+    
+    for(i = 0; i<num_clouds; i++)
+    {
+        var xval = random(room_width);
+        var yval = random(room_height);
+        var cloud = instance_create(xval, yval, obj_chemcloud);
+        
+        var cloudradius = cloud.clouddiameter/2;
+        if(point_distance(xval+(cloudradius), yval+(cloudradius), player.x, player.y) < cloudradius)
+        {
+            with(cloud)
+            {
+                instance_destroy();
+            }
+        }
+    }
 }
 
 // Generate particles
@@ -25,5 +42,7 @@ var num_cells = random(max_cells - min_cells) + min_cells;
 var i;
 for(i = 0; i<num_cells; i++)
 {
-    instance_create(random(room_width), random(room_height), obj_cell);
+    var xpos = random(room_width);
+    var ypos = random(room_height);
+    instance_create(xpos, ypos, obj_cell);
 }
