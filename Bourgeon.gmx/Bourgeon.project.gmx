@@ -35,7 +35,8 @@
     <room>rooms\rm_mainmenu</room>
     <room>rooms\rm_main</room>
   </rooms>
-  <constants number="5">
+  <constants number="6">
+    <constant name="min_food_particles_present">800</constant>
     <constant name="bg_r">29</constant>
     <constant name="bg_g">95</constant>
     <constant name="bg_b">209</constant>

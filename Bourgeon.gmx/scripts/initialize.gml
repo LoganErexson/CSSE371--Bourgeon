@@ -3,6 +3,9 @@ randomize();
 
 // Setup general global variables
 globalvar playerIsAlive;            // Whether or not the player lives
+globalvar numParticles;
+global.numParticles = 0;
+
 
 // Setup chemical and corresponding color array
 globalvar chemicals, chemcolors;
