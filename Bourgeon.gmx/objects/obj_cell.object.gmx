@@ -366,7 +366,7 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (canBeHurt &amp;&amp; !isResistantToChemical[other.chemtype])
+            <string>if (canBeHurt &amp;&amp; !isResistantToChemical[other.chemtype] &amp;&amp; !global.paused)
 {
     cellHealth = cellHealth - 10;
     canBeHurt = false;
