@@ -177,6 +177,32 @@ for (var i = 0; i <array_length_1d(_cloud_list); i++ )
     }
 }
 
+for(var j = 0; j < array_length_1d(_directions); j++)
+{
+    _newY = _cell.y + _cell.speed*_turnSize*sin(_directions[j])
+    _newX = _cell.x + _cell.speed*_turnSize*cos(_directions[j])
+    var newTemp = temp_at_surface - (_newY * (temp_at_surface - temp_at_depths)/room_height);
+    if(newTemp>_cell.maxTemp){
+        _dirValues[j] +=12*(_cell.maxTemp-newTemp) 
+    }
+    else if(newTemp<_cell.minTemp) {
+        _dirValues[j] +=12*(newTemp-_cell.minTemp) 
+    } 
+    
+    if(_newX>room_width){
+        _dirValues[j] -= 12*(_newX-room_width)
+    }
+    else if(_newX<0){
+        _dirValues[j] -= 12*(0-_newX)
+    }
+    if(_newY>room_height)
+    {
+        _dirValues[j] -= 12*(_newY-room_width)
+    }
+    else if(_newY<0){
+        _dirValues[j] -= 12*(0-_newY)
+    }  
+}
 
 maxValue = -99999999
 maxDirections[]=0; 
