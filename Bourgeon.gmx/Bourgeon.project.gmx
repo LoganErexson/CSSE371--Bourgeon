@@ -48,6 +48,7 @@
       <object>objects\obj_options_button</object>
       <object>objects\obj_fire</object>
     </objects>
+    <object>objects\obj_cell_split</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_mainmenu</room>
