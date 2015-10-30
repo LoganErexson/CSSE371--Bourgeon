@@ -722,7 +722,7 @@ if (cellHealth &lt;= 0)
           </argument>
           <argument>
             <kind>0</kind>
-            <string>1</string>
+            <string>5</string>
           </argument>
           <argument>
             <kind>4</kind>
@@ -846,7 +846,7 @@ if (cellHealth &lt;= 0)
           </argument>
           <argument>
             <kind>0</kind>
-            <string>self.ATP - 1</string>
+            <string>self.ATP - 5</string>
           </argument>
         </arguments>
       </action>
