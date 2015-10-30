@@ -28,6 +28,10 @@
             <string>if(global.messageShowing)
 {
     msgbox = instance_find(obj_messagebox, 0);
+    if(msgbox.depth &lt; depth)
+    {
+        instance_destroy();
+    }
     with(msgbox)
     {
         instance_destroy();

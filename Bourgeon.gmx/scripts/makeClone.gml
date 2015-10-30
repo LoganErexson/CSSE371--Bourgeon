@@ -10,11 +10,13 @@ if(cell.isPlayer)
 {
     if(global.twoPlayersActive)
     {
-        return cell;
+        cellType = obj_cell;
     }
-
-    cellType = obj_player;
-    global.paused = true;
+    else
+    {
+        cellType = obj_player;
+        global.paused = true;
+    }
 }
 else
 {
