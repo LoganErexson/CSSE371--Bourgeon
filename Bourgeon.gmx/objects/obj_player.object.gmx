@@ -499,6 +499,7 @@ else
     splitAnimation = instance_find(obj_cell_split, 0);
     splitAnimation.visible = false;
     visible = true;
+    cellHealth = maxHealth;
     global.paused = false;
 }
 </string>
