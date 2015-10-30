@@ -135,29 +135,6 @@ draw_text(0,0,"Real FPS: "+string(fps_real));
         </arguments>
       </action>
     </event>
-    <event eventtype="9" enumb="27">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>game_end();
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="10" enumb="32">
       <action>
         <libid>1</libid>
@@ -176,6 +153,45 @@ draw_text(0,0,"Real FPS: "+string(fps_real));
           <argument>
             <kind>1</kind>
             <string>shader_enabled = !shader_enabled;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="10" enumb="27">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(global.paused)
+{
+    if(!global.twoPlayersActive)
+    {
+        global.paused = false;
+    }
+    
+    // TODO Close pause menu
+}
+else
+{
+    global.paused = true;
+    
+    // TODO Open pause menu
+}
+
+//game_end();
 </string>
           </argument>
         </arguments>

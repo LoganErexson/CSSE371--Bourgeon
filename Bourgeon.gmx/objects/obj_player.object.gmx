@@ -25,7 +25,15 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.playerIsAlive = false;
+            <string>if(global.twoPlayersActive)
+{
+    global.twoPlayersActive = false;
+    global.paused = false;
+}
+else
+{
+    global.playerIsAlive = false;
+}
 </string>
           </argument>
         </arguments>
@@ -48,70 +56,77 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(abs(x-mouse_x)&gt;sprite_width/2 ||abs(y-mouse_y)&gt;sprite_height/2)
+            <string>if(global.paused)
 {
-    if(image_counter &lt;= 4) 
-    {
-        if(ciliaLevel!=0)
-        {
-            if(flagellaLevel!=0)
-            {
-                if((image_index &lt;7)||(image_index==9)) { image_index = 7 }
-                else if(image_index ==7){ image_index = 8}
-                else {image_index = 9}
-            }
-            else
-            {
-                if(((image_index &lt;4)||(image_index&gt;7))||(image_index==5)) 
-                { 
-                    image_index = 4 
-                }
-                else if(image_index ==4){ image_index = 5}
-                else {image_index = 6}
-            }
-        }
-        else{
-            if(flagellaLevel!=0)
-            {
-                if(image_index ==1) { image_index = 2 }
-                else if(image_index = 2) { image_index = 3}
-                else { image_index = 1}
-            }
-            else { image_index = 0}
-        }
-        image_counter++
-    }
-    else
-    {
-        image_counter =0;
-    }
-    move_towards_point (mouse_x, mouse_y, cellSpeed)
-    image_angle= direction+180
-    
-    // Update background
-    background_colour = make_colour_rgb(bg_r - scaler*y, bg_g-scaleg*y, bg_b-scaleb*y);
+    speed = 0;
 }
-else   
+else
 {
-    // Player is not moving
-    speed = 0
-    if(ciliaLevel != 0) 
-    { 
-        if(flagellaLevel!=0){
-            image_index = 8
-        } 
-        else{
-            image_index = 5 
-        }
-    }
-    else{
-        if(flagellaLevel!=0)
+    if(abs(x-mouse_x)&gt;sprite_width/2 ||abs(y-mouse_y)&gt;sprite_height/2)
+    {
+        if(image_counter &lt;= 4) 
         {
-            image_index = 3
+            if(ciliaLevel!=0)
+            {
+                if(flagellaLevel!=0)
+                {
+                    if((image_index &lt;7)||(image_index==9)) { image_index = 7 }
+                    else if(image_index ==7){ image_index = 8}
+                    else {image_index = 9}
+                }
+                else
+                {
+                    if(((image_index &lt;4)||(image_index&gt;7))||(image_index==5)) 
+                    { 
+                        image_index = 4 
+                    }
+                    else if(image_index ==4){ image_index = 5}
+                    else {image_index = 6}
+                }
+            }
+            else{
+                if(flagellaLevel!=0)
+                {
+                    if(image_index ==1) { image_index = 2 }
+                    else if(image_index = 2) { image_index = 3}
+                    else { image_index = 1}
+                }
+                else { image_index = 0}
+            }
+            image_counter++
         }
-
+        else
+        {
+            image_counter =0;
+        }
+        move_towards_point (mouse_x, mouse_y, cellSpeed)
+        image_angle= direction+180
+        
+        // Update background
+        background_colour = make_colour_rgb(bg_r - scaler*y, bg_g-scaleg*y, bg_b-scaleb*y);
     }
-    image_speed = 0
+    else   
+    {
+        // Player is not moving
+        speed = 0
+        if(ciliaLevel != 0) 
+        { 
+            if(flagellaLevel!=0){
+                image_index = 8
+            } 
+            else{
+                image_index = 5 
+            }
+        }
+        else{
+            if(flagellaLevel!=0)
+            {
+                image_index = 3
+            }
+    
+        }
+        image_speed = 0
+    }
 }
 </string>
           </argument>

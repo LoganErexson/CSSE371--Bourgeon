@@ -90,8 +90,15 @@ cellSpeed =(flagellaLevel +ciliaLevel)+2*(2-scaleFactor)+1
 speed = cellSpeed
 if(isPlayer)
 {
-    // Important for the blur effect
-    global.playerIsAlive = true;
+    if(global.playerIsAlive)
+    {
+        global.twoPlayersActive = true;
+    }
+    else
+    {
+        // Important for the blur effect
+        global.playerIsAlive = true;
+    }
 
     // Important for background changing stuff
     scaler = bg_r/room_height;
@@ -204,27 +211,34 @@ alarm[2] = 10;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Update the cell's temperature based on depth
-temperature = temp_at_surface - (y * (temp_at_surface - temp_at_depths)/room_height);
-
-// Reduce the cell's health if the temperature is unbearable
-if(temperature &gt; maxTemp || temperature &lt; minTemp)
+            <string>if(global.paused)
 {
-    cellHealth -= 10;
-    canBeHurt = false;
+    alarm[1] = 6;
 }
-
-// If the cell is moving, move the particle emitter
-if(speed != 0)
+else
 {
-    //The cell is moving so we move the particle emitter
-    part_emitter_region(global.P_System_Behind, Particle_Emitter, x, x, y, y, ps_shape_ellipse, ps_distr_linear);
+    // Update the cell's temperature based on depth
+    temperature = temp_at_surface - (y * (temp_at_surface - temp_at_depths)/room_height);
     
-    //Now to burst particles
-    part_emitter_burst(global.P_System_Behind, Particle_Emitter, global.Bubble, 2);
+    // Reduce the cell's health if the temperature is unbearable
+    if(temperature &gt; maxTemp || temperature &lt; minTemp)
+    {
+        cellHealth -= 10;
+        canBeHurt = false;
+    }
+    
+    // If the cell is moving, move the particle emitter
+    if(speed != 0)
+    {
+        //The cell is moving so we move the particle emitter
+        part_emitter_region(global.P_System_Behind, Particle_Emitter, x, x, y, y, ps_shape_ellipse, ps_distr_linear);
+        
+        //Now to burst particles
+        part_emitter_burst(global.P_System_Behind, Particle_Emitter, global.Bubble, 2);
+    }
+    
+    alarm[1] = 10;
 }
-
-alarm[1] = 10;
 </string>
           </argument>
         </arguments>
@@ -247,11 +261,19 @@ alarm[1] = 10;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>aiDirection = cellAI(self, 4, 300*visionLevel)
-if(aiDirection != -4)
-    direction = aiDirection
-image_angle = direction +180
-alarm[0] = 4
+            <string>if(global.paused)
+{
+    alarm[0] = 6;
+}
+else
+{
+    speed = cellSpeed;
+    aiDirection = cellAI(self, 4, 300*visionLevel)
+    if(aiDirection != -4)
+        direction = aiDirection
+    image_angle = direction +180
+    alarm[0] = 4
+}
 </string>
           </argument>
         </arguments>
@@ -274,46 +296,53 @@ alarm[0] = 4
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Remove the cell if it's out of health
-if (cellHealth &lt;= 0)
+            <string>if(global.paused)
 {
-    instance_destroy();
-}
-
-if(image_counter &lt;= 4) 
-{
-    if(ciliaLevel!=0)
-    {
-        if(flagellaLevel!=0)
-        {
-            if((image_index &lt;7)||(image_index==9)) { image_index = 7 }
-            else if(image_index ==7){ image_index = 8}
-            else {image_index = 9}
-        }
-        else
-        {
-            if(((image_index &lt;4)&amp;&amp;(image_index&gt;70))||(image_index==5)) 
-            { 
-                image_index = 4 
-            }
-            else if(image_index ==4){ image_index = 5}
-            else {image_index = 6}
-        }
-    }
-    else{
-        if(flagellaLevel!=0)
-        {
-            if(image_index ==1) { image_index = 2 }
-            else if(image_index = 2) { image_index = 3}
-            else { image_index = 1}
-        }
-        else { image_index = 0}
-    }
-    image_counter++
+    speed = 0;
 }
 else
 {
-    image_counter =0;
+    // Remove the cell if it's out of health
+    if (cellHealth &lt;= 0)
+    {
+        instance_destroy();
+    }
+    
+    if(image_counter &lt;= 4) 
+    {
+        if(ciliaLevel!=0)
+        {
+            if(flagellaLevel!=0)
+            {
+                if((image_index &lt;7)||(image_index==9)) { image_index = 7 }
+                else if(image_index ==7){ image_index = 8}
+                else {image_index = 9}
+            }
+            else
+            {
+                if(((image_index &lt;4)&amp;&amp;(image_index&gt;70))||(image_index==5)) 
+                { 
+                    image_index = 4 
+                }
+                else if(image_index ==4){ image_index = 5}
+                else {image_index = 6}
+            }
+        }
+        else{
+            if(flagellaLevel!=0)
+            {
+                if(image_index ==1) { image_index = 2 }
+                else if(image_index = 2) { image_index = 3}
+                else { image_index = 1}
+            }
+            else { image_index = 0}
+        }
+        image_counter++
+    }
+    else
+    {
+        image_counter =0;
+    }
 }
 </string>
           </argument>

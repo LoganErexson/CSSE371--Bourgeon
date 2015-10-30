@@ -5,8 +5,22 @@ _x = argument1
 _y = argument2
 isMutated = argument3
 
+var cellType;
+if(cell.isPlayer)
+{
+    if(global.twoPlayersActive)
+    {
+        return cell;
+    }
 
-newCell = instance_create(_x, _y, obj_cell);
+    cellType = obj_player;
+    global.paused = true;
+}
+else
+{
+    cellType = obj_cell;
+}
+newCell = instance_create(_x, _y, cellType);
 
 newCell.scaleFactor = cell.scaleFactor;
 newCell.image_xscale = cell.image_xscale;

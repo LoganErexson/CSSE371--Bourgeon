@@ -1,11 +1,19 @@
 // Randomize the seed!
 randomize();
 
+globalvar paused;
+global.paused = false;
+
 globalvar messageShowing;
 global.messageShowing = false;
 
 // Setup general global variables
 globalvar playerIsAlive;            // Whether or not the player lives
+global.playerIsAlive = false;
+
+globalvar twoPlayersActive;
+global.twoPlayersActive = false;
+
 globalvar numParticles;
 global.numParticles = 0;
 
