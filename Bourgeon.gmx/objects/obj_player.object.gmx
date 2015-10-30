@@ -498,6 +498,7 @@ else
     }
     splitAnimation = instance_find(obj_cell_split, 0);
     splitAnimation.visible = false;
+    visible = true;
     global.paused = false;
 }
 </string>
@@ -723,7 +724,7 @@ if (cellHealth &lt;= 0)
           </argument>
           <argument>
             <kind>0</kind>
-            <string>5</string>
+            <string>1</string>
           </argument>
           <argument>
             <kind>4</kind>
@@ -789,33 +790,6 @@ if (cellHealth &lt;= 0)
       </action>
       <action>
         <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>visible = false;
-splitAnimation = instance_find(obj_cell_split, 0);
-splitAnimation.x = x;
-splitAnimation.y = y;
-splitAnimation.image_index = 0;
-splitAnimation.visible = true;
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
         <id>601</id>
         <kind>0</kind>
         <userelative>0</userelative>
@@ -842,7 +816,7 @@ splitAnimation.visible = true;
           </argument>
           <argument>
             <kind>0</kind>
-            <string>y-45</string>
+            <string>y</string>
           </argument>
           <argument>
             <kind>0</kind>
@@ -851,6 +825,41 @@ splitAnimation.visible = true;
           <argument>
             <kind>0</kind>
             <string></string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>visible = false;
+splitAnimation = instance_find(obj_cell_split, 0);
+splitAnimation.x = x;
+splitAnimation.y = y;
+splitAnimation.image_index = 0;
+splitAnimation.image_speed = 0.5;
+player = instance_find(obj_player, 0);
+if(id == player.id)
+{
+    player = instance_find(obj_player, 1);
+}
+x = x + 45;
+player.visible = false;
+splitAnimation.visible = true;
+
+</string>
           </argument>
         </arguments>
       </action>
@@ -874,7 +883,7 @@ splitAnimation.visible = true;
           </argument>
           <argument>
             <kind>0</kind>
-            <string>self.ATP - 5</string>
+            <string>self.ATP - 1</string>
           </argument>
         </arguments>
       </action>
