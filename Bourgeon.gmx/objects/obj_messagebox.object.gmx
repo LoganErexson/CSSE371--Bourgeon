@@ -32,9 +32,12 @@
     {
         instance_destroy();
     }
-    with(msgbox)
+    else
     {
-        instance_destroy();
+        with(msgbox)
+        {
+            instance_destroy();
+        }
     }
 }
 
