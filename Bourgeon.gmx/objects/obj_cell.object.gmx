@@ -434,6 +434,15 @@ else if (isPlayer)
             <string>if (canPhagocytosis &amp;&amp; image_xscale &gt; other.image_xscale)
 {
     ATP += 10*other.scaleFactor
+    
+    if((image_yscale*sprite_height&lt;maxHeight)&amp;&amp;(image_xscale*sprite_width&lt;maxWidth)) {
+        image_xscale = power(1.05,10*other.scaleFactor) *image_xscale
+        image_yscale = power(1.05,10*other.scaleFactor) *image_yscale
+        if((image_yscale*sprite_height&gt;maxHeight)||(image_xscale*sprite_width&gt;maxWidth)){
+            image_yscale = maxHeight/sprite_height
+            image_xscale = maxWidth/sprite_width
+        }
+    }
     with(other)
     {
         instance_destroy();

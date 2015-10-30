@@ -23,13 +23,11 @@ else
 newCell = instance_create(_x, _y, cellType);
 
 newCell.scaleFactor = cell.scaleFactor;
-newCell.image_xscale = cell.image_xscale;
-newCell.image_yscale = cell.image_yscale;
-newCell.maxHeight = cell.maxHeight;
-newCell.maxWidth = cell.maxWidth;
+newCell.image_xscale = cell.scaleFactor* 0.30;
+newCell.image_yscale = cell.scaleFactor* 0.30;
 
 newCell.maxHealth = cell.maxHealth;
-newCell.cellHealth = cell.cellHealth;
+newCell.cellHealth = cell.maxHealth;
 
 newCell.image_blend = cell.image_blend;
 
@@ -194,6 +192,8 @@ if(isMutated)
 }
 newCell.cellSpeed = (newCell.flagellaLevel +newCell.ciliaLevel)+2*(2-newCell.scaleFactor)+1
 newCell.speed = newCell.cellSpeed
+newCell.maxHeight = newCell.sprite_height*newCell.image_yscale*2;
+newCell.maxWidth = newCell.sprite_width*newCell.image_xscale*2;
 
 return newCell
 
