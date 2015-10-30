@@ -31,6 +31,30 @@ image_index = 0;
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>211</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_sound</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>6</kind>
+            <sound>battle_music</sound>
+          </argument>
+          <argument>
+            <kind>3</kind>
+            <string>1</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="6" enumb="11">
       <action>
@@ -103,6 +127,26 @@ image_index = 0;
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>212</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_end_sound</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>6</kind>
+            <sound>battle_music</sound>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="6" enumb="4">
       <action>
@@ -121,15 +165,7 @@ image_index = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// If the mouse is in the button
-//if(abs(x - mouse_x) &lt; (sprite_width / 2) &amp;&amp; abs(y - mouse_y) &lt; (sprite_height / 2))
-//{
-    image_index = 1;
-//}
-//else
-//{
-//    image_index = 0;
-//}
+            <string>image_index = 1;
 </string>
           </argument>
         </arguments>
