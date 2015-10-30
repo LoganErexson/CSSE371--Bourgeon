@@ -25,7 +25,18 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>text = " ";
+            <string>if(global.messageShowing)
+{
+    msgbox = instance_find(obj_messagebox, 0);
+    with(msgbox)
+    {
+        instance_destroy();
+    }
+}
+
+global.messageShowing = true;
+
+text = " ";
 timeout = 99999;
 returndist = 17;
 
@@ -36,8 +47,6 @@ timeoutcounter = 0;
 
 width = sprite_width * image_xscale;
 
-global.messageShowing = true;
-
 image_alpha = 0.6;
 </string>
           </argument>
@@ -47,9 +56,9 @@ image_alpha = 0.6;
     <event eventtype="1" enumb="0">
       <action>
         <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
+        <id>611</id>
+        <kind>6</kind>
+        <userelative>-1</userelative>
         <isquestion>0</isquestion>
         <useapplyto>-1</useapplyto>
         <exetype>2</exetype>
@@ -61,8 +70,11 @@ image_alpha = 0.6;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.messageShowing = false;
-</string>
+            <string>global.messageShowing</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>false</string>
           </argument>
         </arguments>
       </action>
@@ -85,9 +97,10 @@ image_alpha = 0.6;
           <argument>
             <kind>1</kind>
             <string>timeoutcounter++;
+
 if(timeoutcounter &gt; timeout)
 {
-   instance_destroy();
+    instance_destroy();
 }
 </string>
           </argument>
