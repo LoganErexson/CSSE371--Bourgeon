@@ -55,7 +55,7 @@ for(i=0; i&lt;array_length_1d(global.particles); i++)
 ATP = 0;
 temperature = (temp_at_surface+temp_at_depths)/2;
 canBeHurt = true;
-scaleFactor = 0.5+ 0.25*random(5);
+scaleFactor = 0.5+ 0.25*irandom(6);
 image_yscale = scaleFactor * 0.30;
 image_xscale = scaleFactor * 0.30;
 maxHeight = sprite_height*image_yscale*2;
@@ -68,18 +68,17 @@ cellHealth = maxHealth;
 image_blend=random(c_white);
 image_speed = 0;
 image_index = 0;
-shape = "circle";
+//shape = "circle";
 
-hasCellWall = false;
+//hasCellWall = false;
 
 maxTemp = temp_at_surface*1.10 - random(abs(temp_at_surface) * 0.3);
 minTemp = temp_at_depths*1.10 + random(abs(temp_at_depths) * 0.3);
 
 visionLevel = random_range(0.5, 1);
 
-isPhototropic = false;
-canPhotosythesis = false;
-canOxidativeMetabolise = false;
+//isPhototropic = false;
+//canPhotosythesis = false;
 canPhagocytosis = true; //Engulf smaller cells
 
 
@@ -87,7 +86,7 @@ ciliaLevel = irandom(3)-1;
 flagellaLevel = irandom(3)-1;
 if(ciliaLevel&lt;0) { ciliaLevel = 0}
 if(flagellaLevel&lt;0) { flagellaLevel = 0}
-cellSpeed =flagellaLevel +ciliaLevel+1
+cellSpeed =(flagellaLevel +ciliaLevel)+2*(2-scaleFactor)+1
 speed = cellSpeed
 if(isPlayer)
 {
@@ -411,6 +410,71 @@ else if (isPlayer &amp;&amp; !global.messageShowing)
         instance_destroy();
     }
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>601</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_execute_script</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>9</kind>
+            <script>makeClone</script>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>self</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>x+100</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>y+100</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>true</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string></string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="49">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>speed = 0
 </string>
           </argument>
         </arguments>
