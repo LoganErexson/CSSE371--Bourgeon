@@ -858,6 +858,9 @@ if(id == player.id)
 }
 x = x + 45;
 player.visible = false;
+image_xscale = scaleFactor* 0.30; 
+image_yscale = scaleFactor* 0.30;
+ATP = 0;
 splitAnimation.visible = true;
 
 </string>

@@ -58,8 +58,8 @@ canBeHurt = true;
 scaleFactor = 0.5+ 0.25*irandom(6);
 image_yscale = scaleFactor * 0.30;
 image_xscale = scaleFactor * 0.30;
-maxHeight = sprite_height*image_yscale*2;
-maxWidth = sprite_width*image_xscale*2;
+maxHeight = sprite_height*2;
+maxWidth = sprite_width*2;
 image_counter = 0;
 
 maxHealth = 100*scaleFactor;
@@ -400,7 +400,7 @@ else
     }
     ATP = ATP +1
     
-    if((image_yscale*sprite_height&lt;maxHeight)&amp;&amp;(image_xscale*sprite_width&lt;maxWidth)) {
+    if((sprite_height&lt;maxHeight)&amp;&amp;(sprite_width&lt;maxWidth)) {
         image_xscale = 1.05*image_xscale
         image_yscale = 1.05*image_yscale
     }
@@ -431,16 +431,17 @@ else if (isPlayer)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (canPhagocytosis &amp;&amp; image_xscale &gt; other.image_xscale)
+            <string>if (canPhagocytosis &amp;&amp; (image_xscale &gt; other.image_xscale)&amp;&amp; (image_yscale &gt; other.image_yscale))
 {
     ATP += 10*other.scaleFactor
     
-    if((image_yscale*sprite_height&lt;maxHeight)&amp;&amp;(image_xscale*sprite_width&lt;maxWidth)) {
+    if((sprite_height&lt;maxHeight)&amp;&amp;(sprite_width&lt;maxWidth)) {
         image_xscale = power(1.05,10*other.scaleFactor) *image_xscale
         image_yscale = power(1.05,10*other.scaleFactor) *image_yscale
-        if((image_yscale*sprite_height&gt;maxHeight)||(image_xscale*sprite_width&gt;maxWidth)){
-            image_yscale = maxHeight/sprite_height
-            image_xscale = maxWidth/sprite_width
+        
+        if(sprite_height&gt;maxHeight||sprite_width&gt;maxWidth){
+            image_xscale= maxWidth/sprite_get_width(sprite_index)
+            image_yscale = maxHeight/sprite_get_height(sprite_index)
         }
     }
     with(other)

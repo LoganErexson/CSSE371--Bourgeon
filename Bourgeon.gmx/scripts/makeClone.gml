@@ -196,7 +196,8 @@ if(isMutated) //If the clone should be mutated, change it's values
                     newCell.isResistantToChemical[toChange[index]] = !newCell.isResistantToChemical[toChange[index]]
                 }
                 
-                        
+                if(i==3)
+                    break;      
                 
         }
     }
@@ -204,8 +205,8 @@ if(isMutated) //If the clone should be mutated, change it's values
 //Update cell speed and max size to adjust for mutations
 newCell.cellSpeed = (newCell.flagellaLevel +newCell.ciliaLevel)+2*(2-newCell.scaleFactor)+1
 newCell.speed = newCell.cellSpeed
-newCell.maxHeight = newCell.sprite_height*newCell.scaleFactor * 0.30*2;
-newCell.maxWidth = newCell.sprite_width*newCell.scaleFactor * 0.30*2;
+newCell.maxHeight = sprite_get_height(newCell.sprite_index)*newCell.scaleFactor * 0.30*2;
+newCell.maxWidth = sprite_get_width(newCell.sprite_index)*newCell.scaleFactor * 0.30*2;
 
 return newCell
 
