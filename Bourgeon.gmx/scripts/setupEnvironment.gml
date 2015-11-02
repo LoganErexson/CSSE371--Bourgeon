@@ -14,7 +14,7 @@ for(i = 0; i<num_clouds; i++)
     var cloud = instance_create(xval, yval, obj_chemcloud);
     
     var cloudradius = cloud.clouddiameter/2;
-    if(point_distance(xval+(cloudradius), yval+(cloudradius), player.x, player.y) < cloudradius)
+    if(point_distance(xval, yval, player.x, player.y) < cloudradius)
     {
         with(cloud)
         {
