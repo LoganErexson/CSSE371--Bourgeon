@@ -41,7 +41,7 @@ global.chemcolors[4] = c_aqua;
 
 
 // Setup food particles and corresponding color array
-globalvar particles, partcolors;
+globalvar particles, partcolors, partMessageShown;
 
 global.particles[0] = "Glucose";
 global.partcolors[0] = c_white;
@@ -51,6 +51,13 @@ global.partcolors[1] = c_green;
 
 global.particles[2] = "Waste";
 global.partcolors[2] = c_olive;
+
+
+var i;
+for(i=0; i<array_length_1d(global.particles); i++) // generate array for food particle messages so they are not displayed multiple times
+{
+    global.partMessageShown[i] = false;
+}
 
 // Add more particles as needed....
 // global.particles[i] = "Particle Name";

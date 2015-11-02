@@ -405,8 +405,9 @@ else
         image_yscale = 1.05*image_yscale
     }
 }
-else if (isPlayer)
+else if (isPlayer &amp;&amp; !global.partMessageShown[other.parttype])
 {
+    global.partMessageShown[other.parttype] = true;
     showCustomMessage(400, 10, "Your cell is incapable of consuming " + global.particles[other.parttype], 1, 80, 1);
 }
 </string>
