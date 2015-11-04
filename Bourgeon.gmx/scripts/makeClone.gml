@@ -125,11 +125,11 @@ if(isMutated) //If the clone should be mutated, change it's values
                 break;
             case 5: //Change in ability to engulf cells
                 if(i!=3){
-                    if(irandom(3)==0) //25% chance of giving trait
+            //       if(irandom(3)==0) //25% chance of giving trait
                         newCell.canPhagocytosis = true;
                 }
                 else{
-                    if(irandom(2)==0) //33% chance of losing trait
+              //      if(irandom(2)==0) //33% chance of losing trait
                         newCell.canPhagocytosis = false;
                 }
                 break;
