@@ -43,7 +43,6 @@ for(i=0; i&lt;array_length_1d(global.chemicals); i++)
     isResistantToChemical[i] = (indexToHaveResistanceOn == i);
 }
 
-
 // Particles this cell can process/consume
 var guaranteedIndex = irandom(array_length_1d(global.particles)-1);
 for(i=0; i&lt;array_length_1d(global.particles); i++)
@@ -269,11 +268,11 @@ else
 else
 {
     speed = cellSpeed;
-    aiDirection = cellAI(self, 4, 300*visionLevel)
+    aiDirection = cellAI(self, 6, 300*visionLevel)
     if(aiDirection != -4)
         direction = aiDirection
     image_angle = direction +180
-    alarm[0] = 4
+    alarm[0] = 6
 }
 </string>
           </argument>
@@ -524,6 +523,9 @@ image_yscale = scaleFactor* 0.30;
     if((sprite_height&lt;maxHeight)&amp;&amp;(sprite_width&lt;maxWidth)) {
         image_xscale = 1.05*image_xscale
         image_yscale = 1.05*image_yscale
+    }
+    if(other.parttype == 1){
+        ATP++;
     }
 }
 else if (isPlayer &amp;&amp; !global.partMessageShown[other.parttype])

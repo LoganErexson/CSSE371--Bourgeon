@@ -119,7 +119,12 @@ for (var i = 0; i <array_length_1d(_particle_list); i++ )
             {
                 if(_newDistance<_radius/3)
                 {
-                    _dirValues[j] += 4*(_distance-_newDistance)
+                    if(_newDistance<_radius/4){
+                        _dirValues[j] += 8*(_distance-_newDistance)
+                    }
+                    else{
+                        _dirValues[j] += 4*(_distance-_newDistance)
+                    }
                 }
                 else
                     _dirValues[j] += 3*(_distance-_newDistance)
@@ -157,8 +162,8 @@ for (var i = 0; i <array_length_1d(_cloud_list); i++ )
             if(_newDistance<_radius/2)
             {
                 if(_newDistance<_radius/3)
-                {
-                    _dirValues[j] += 12*(_newDistance-_distance)
+                {   
+                        _dirValues[j] += 12*(_newDistance-_distance)
                 }
                 else
                 {

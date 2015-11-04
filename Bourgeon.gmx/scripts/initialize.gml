@@ -45,11 +45,11 @@ global.chemcolors[4] = c_aqua;
 // Setup food particles and corresponding color array
 globalvar particles, partcolors, partMessageShown;
 
-global.particles[0] = "Glucose";
-global.partcolors[0] = c_white;
+global.particles[0] = "Raw ATP";
+global.partcolors[0] = $F82C07;
 
-global.particles[1] = "Raw ATP";
-global.partcolors[1] = $F82C07;
+global.particles[1] = "Glucose";
+global.partcolors[1] = c_white;
 
 global.particles[2] = "Alanine";
 global.partcolors[2] = $C5FED9;

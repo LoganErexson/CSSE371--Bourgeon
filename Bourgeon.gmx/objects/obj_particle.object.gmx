@@ -26,10 +26,13 @@
           <argument>
             <kind>1</kind>
             <string>image_xscale = random(0.3) + 0.15;
+
+parttype = irandom(array_length_1d(global.particles)-2)+1;
+if(parttype ==1){
+    image_xscale+=0.10
+}
+
 image_yscale = image_xscale;
-
-parttype = random(array_length_1d(global.particles));
-
 image_blend = global.partcolors[parttype];
 
 global.numParticles = global.numParticles + 1;
