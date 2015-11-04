@@ -24,8 +24,8 @@ for(i = 0; i<num_clouds; i++)
 }
 
 // Generate particles
-var max_particles = 100;
-var min_particles = 50;
+var max_particles = 200;
+var min_particles = 100;
 var num_particles = random(max_particles - min_particles) + min_particles;
 var i;
 for(i = 0; i<num_particles; i++)

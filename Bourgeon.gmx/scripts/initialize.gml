@@ -47,10 +47,61 @@ global.particles[0] = "Glucose";
 global.partcolors[0] = c_white;
 
 global.particles[1] = "Raw ATP";
-global.partcolors[1] = c_green;
+global.partcolors[1] = $F82C07;
 
-global.particles[2] = "Waste";
-global.partcolors[2] = c_olive;
+global.particles[2] = "Alanine";
+global.partcolors[2] = $C5FED9;
+
+global.particles[3] = "Arginine";
+global.partcolors[3] = $FEDE01;
+
+global.particles[4] = "Asparagine";
+global.partcolors[4] = $00BE3F;
+
+global.particles[5] = "Cysteine";
+global.partcolors[5] = $9C9CFF;
+
+global.particles[6] = "Glutamine";
+global.partcolors[6] = $FF6666;
+
+global.particles[7] = "Glycine";
+global.partcolors[7] = $FFC041;
+
+global.particles[8] = "Histidine";
+global.partcolors[8] = $F6F600;
+
+global.particles[9] = "Isoleucine";
+global.partcolors[9] = $00E3E3;
+
+global.particles[10] = "Leucine";
+global.partcolors[10] = $E3E300;
+
+global.particles[11] = "Lysine";
+global.partcolors[11] = $990099;
+
+global.particles[12] = "Methionine";
+global.partcolors[12] = $CC00CC;
+
+global.particles[13] = "Phenylalanine";
+global.partcolors[13] = $A274FF;
+
+global.particles[14] = "Proline";
+global.partcolors[14] = $E68A00;
+
+global.particles[15] = "Serine";
+global.partcolors[15] = $8533FF;
+
+global.particles[16] = "Threonine";
+global.partcolors[16] = $ABABAB;
+
+global.particles[17] = "Tryptophan";
+global.partcolors[17] = $E4621B;
+
+global.particles[18] = "Tyrosine";
+global.partcolors[18] = $F14F7C;
+
+global.particles[19] = "Valine";
+global.partcolors[19] = $F14F7C;
 
 
 var i;

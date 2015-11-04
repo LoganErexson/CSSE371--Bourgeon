@@ -48,7 +48,7 @@ for(i=0; i&lt;array_length_1d(global.chemicals); i++)
 var guaranteedIndex = irandom(array_length_1d(global.particles)-1);
 for(i=0; i&lt;array_length_1d(global.particles); i++)
 {
-    canConsumeParticle[i] = ((guaranteedIndex == i) || (random(1) &lt; 1/array_length_1d(global.particles)));
+    canConsumeParticle[i] = ((guaranteedIndex == i) || (random(1) &lt; 1/4));
 }
 
 
@@ -58,8 +58,8 @@ canBeHurt = true;
 scaleFactor = 0.5+ 0.25*irandom(6);
 image_yscale = scaleFactor * 0.30;
 image_xscale = scaleFactor * 0.30;
-maxHeight = sprite_height*2;
-maxWidth = sprite_width*2;
+maxHeight = sprite_height*1.5;
+maxWidth = sprite_width*1.5;
 image_counter = 0;
 
 maxHealth = 100*scaleFactor;
