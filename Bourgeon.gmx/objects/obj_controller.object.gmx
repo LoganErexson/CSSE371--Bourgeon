@@ -157,7 +157,7 @@ shader_set_uniform_f(uni_player_vision_vert, vLevel);
 draw_surface(final_surface,0,0);
 shader_reset();
 
-draw_text(0,0,"Real FPS: "+string(fps_real));
+//draw_text(0,0,"Real FPS: "+string(fps_real));
 
 //draw_text(0,60,"Spacebar to toggle shader");
 //draw_text(0,72,"Escape key to exit");
@@ -206,7 +206,7 @@ draw_text(0,0,"Real FPS: "+string(fps_real));
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(global.paused)
+            <string>if(global.paused &amp;&amp; global.playerIsAlive)
 {
     if(!global.twoPlayersActive)
     {
@@ -220,9 +220,10 @@ draw_text(0,0,"Real FPS: "+string(fps_real));
 }
 else
 {
+    global.paused = true;
+    
     if(global.playerIsAlive)
     {
-        global.paused = true;
         pauseText.x = view_xview[0]+320;
         pauseText.y = view_yview[0]+50;
         pauseText.visible = true;
@@ -230,15 +231,15 @@ else
         resumeButton.x = view_xview[0] + 320;
         resumeButton.y = view_yview[0] + 150;
         resumeButton.visible = true;
-        
-        restartButton.x = view_xview[0] + 320;
-        restartButton.y = view_yview[0] + 215;
-        restartButton.visible = true;
-        
-        quitgameButton.x = view_xview[0] + 320;
-        quitgameButton.y = view_yview[0] + 280;
-        quitgameButton.visible = true;
     }
+    
+    restartButton.x = view_xview[0] + 320;
+    restartButton.y = view_yview[0] + 215;
+    restartButton.visible = true;
+    
+    quitgameButton.x = view_xview[0] + 320;
+    quitgameButton.y = view_yview[0] + 280;
+    quitgameButton.visible = true;
 }
 </string>
           </argument>

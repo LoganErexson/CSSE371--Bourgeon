@@ -36,6 +36,7 @@
     <script>scripts\cellAI.gml</script>
     <script>scripts\showCustomMessage.gml</script>
     <script>scripts\makeClone.gml</script>
+    <script>scripts\teardown.gml</script>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shd_gaussian_horizontal.shader</shader>

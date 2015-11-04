@@ -31,8 +31,17 @@
     global.paused = false;
 }
 else
-{
+{   
     global.playerIsAlive = false;
+ 
+    var controller = instance_find(obj_controller, 0);
+    
+    with(controller)
+    {
+        // Open the death menu
+        keyboard_key_release(vk_escape);
+    }
+    
 }
 </string>
           </argument>

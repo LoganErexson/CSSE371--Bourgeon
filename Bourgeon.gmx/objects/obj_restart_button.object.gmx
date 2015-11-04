@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>if(visible)
 {
+    script_execute(teardown);
     script_execute(initialize);
     room_goto(rm_main);
 }

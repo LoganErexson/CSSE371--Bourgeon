@@ -1,6 +1,8 @@
 // Randomize the seed!
 randomize();
 
+globalvar controller;
+
 globalvar paused;
 global.paused = false;
 
