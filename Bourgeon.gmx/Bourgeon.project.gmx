@@ -58,6 +58,8 @@
     </objects>
     <objects name="Pause Menu">
       <object>objects\obj_resume_button</object>
+      <object>objects\obj_restart_button</object>
+      <object>objects\obj_quitgame_button</object>
       <object>objects\obj_pause</object>
     </objects>
   </objects>

@@ -47,6 +47,10 @@ pauseText.depth = -100
 pauseText.visible = false;
 resumeButton = instance_create(player.x, player.y, obj_resume_button);
 resumeButton.visible = false;
+restartButton = instance_create(player.x, player.y, obj_restart_button);
+restartButton.visible = false;
+quitgameButton = instance_create(player.x, player.y, obj_quitgame_button);
+quitgameButton.visible = false;
 
 // Begin the food particle generator
 alarm[0] = 100;
@@ -211,6 +215,8 @@ draw_text(0,0,"Real FPS: "+string(fps_real));
 
     pauseText.visible = false;
     resumeButton.visible = false;
+    restartButton.visible = false;
+    quitgameButton.visible = false;
 }
 else
 {
@@ -222,8 +228,16 @@ else
         pauseText.visible = true;
         
         resumeButton.x = view_xview[0] + 320;
-        resumeButton.y = view_yview[0] + 250;
+        resumeButton.y = view_yview[0] + 150;
         resumeButton.visible = true;
+        
+        restartButton.x = view_xview[0] + 320;
+        restartButton.y = view_yview[0] + 215;
+        restartButton.visible = true;
+        
+        quitgameButton.x = view_xview[0] + 320;
+        quitgameButton.y = view_yview[0] + 280;
+        quitgameButton.visible = true;
     }
 }
 </string>
