@@ -152,7 +152,7 @@ else
           </argument>
           <argument>
             <kind>0</kind>
-            <string>5</string>
+            <string>neededATP</string>
           </argument>
           <argument>
             <kind>4</kind>
@@ -665,7 +665,7 @@ else
           <argument>
             <kind>1</kind>
             <string>draw_healthbar(10, 10, 110, 25, cellHealth / maxHealth * 100, c_black, c_dkgray, c_red, 0, true, true);
-draw_healthbar(10, 40, 110, 25, ATP, c_black, c_green, c_lime, 0, true, true);
+draw_healthbar(10, 40, 110, 25, ATP / neededATP * 100, c_black, c_green, c_lime, 0, true, true);
 
 draw_set_color(c_white);
 draw_text(120, 17, string(cellHealth)+"/"+string(maxHealth))
@@ -860,7 +860,7 @@ x = x + 45;
 player.visible = false;
 image_xscale = scaleFactor* 0.30; 
 image_yscale = scaleFactor* 0.30;
-ATP = 0;
+ATP = (ATP-neededATP)/2;
 splitAnimation.visible = true;
 
 </string>

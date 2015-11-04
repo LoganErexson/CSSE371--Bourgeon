@@ -60,6 +60,7 @@ image_yscale = scaleFactor * 0.30;
 image_xscale = scaleFactor * 0.30;
 maxHeight = sprite_height*1.5;
 maxWidth = sprite_width*1.5;
+neededATP = scaleFactor*10;
 image_counter = 0;
 
 maxHealth = 100*scaleFactor;
@@ -320,7 +321,7 @@ else
             }
             else
             {
-                if(((image_index &lt;4)&amp;&amp;(image_index&gt;70))||(image_index==5)) 
+                if(((image_index &lt;4)||(image_index&gt;7))||(image_index==5)) 
                 { 
                     image_index = 4 
                 }
@@ -368,7 +369,7 @@ else
           </argument>
           <argument>
             <kind>0</kind>
-            <string>5</string>
+            <string>neededATP</string>
           </argument>
           <argument>
             <kind>4</kind>
@@ -446,7 +447,10 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>ATP=0;
+            <string>ATP = (ATP-neededATP)/2
+x = x + 45;
+image_xscale = scaleFactor* 0.30; 
+image_yscale = scaleFactor* 0.30;
 </string>
           </argument>
         </arguments>

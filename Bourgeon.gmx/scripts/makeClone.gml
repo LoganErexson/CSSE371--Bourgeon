@@ -29,6 +29,8 @@ newCell.scaleFactor = cell.scaleFactor;
 //Set the image size to the minimum for the cell's scaleFactor
 newCell.image_xscale = cell.scaleFactor* 0.30; 
 newCell.image_yscale = cell.scaleFactor* 0.30;
+newCell.neededATP = cell.neededATP;
+newCell.ATP = (cell.ATP-cell.neededATP)/2
 
 newCell.maxHealth = cell.maxHealth;
 newCell.cellHealth = cell.maxHealth;
@@ -78,6 +80,8 @@ if(isMutated) //If the clone should be mutated, change it's values
                 }
                 //Visual size is not changed because this would 
                 //give one of the new cells an advantage
+                
+                newCell.neededATP = newCell.scaleFactor*10
                 break;
             case 1: //Change in health
                 if(i!=3){//Increase
