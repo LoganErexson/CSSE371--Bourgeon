@@ -41,6 +41,11 @@ shader_enabled = true;
 
 final_surface = surface_create(1601,901);
 
+var player = instance_find(obj_player, 0)
+pauseText = instance_create(player.x,player.y, obj_pause);
+pauseText.depth = -100
+pauseText.visible = false;
+
 // Begin the food particle generator
 alarm[0] = 100;
 
@@ -181,14 +186,23 @@ draw_text(0,0,"Real FPS: "+string(fps_real));
     {
         global.paused = false;
     }
+    if(global.playerIsAlive)
+    {
+        //pauseText = instance_find(obj_pause, 0)
+        pauseText.visible = false;
+    }
     
-    // TODO Close pause menu
 }
 else
 {
     global.paused = true;
-    
-    // TODO Open pause menu
+    if(global.playerIsAlive)
+    {
+        //pauseText = instance_find(obj_pause, 0)
+        pauseText.x = view_xview[0]+320;
+        pauseText.y = view_yview[0]+50;
+        pauseText.visible = true;
+    }
 }
 
 //game_end();

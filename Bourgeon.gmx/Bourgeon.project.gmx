@@ -20,6 +20,7 @@
       <sprite>sprites\spr_options_button</sprite>
       <sprite>sprites\spr_fire</sprite>
     </sprites>
+    <sprite>sprites\spr_pause</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -49,6 +50,7 @@
       <object>objects\obj_fire</object>
     </objects>
     <object>objects\obj_cell_split</object>
+    <object>objects\obj_pause</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_mainmenu</room>
@@ -66,7 +68,7 @@
     <rtf>help.rtf</rtf>
   </help>
   <TutorialState>
-    <IsTutorial>-1</IsTutorial>
+    <IsTutorial>0</IsTutorial>
     <TutorialName>C:\Users\erexsolr\AppData\Local\GameMaker-Studio\tutorials\08_Levels_And_Saving\</TutorialName>
     <TutorialPage>0</TutorialPage>
   </TutorialState>
