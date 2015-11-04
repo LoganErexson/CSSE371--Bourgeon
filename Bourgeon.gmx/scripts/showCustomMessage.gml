@@ -3,10 +3,17 @@ var yPos = argument[1];
 var message = argument[2];
 var lineHeight = argument[3];
 var stepsToTimeout = argument[4];
-var drawPriority = 2; // Bigger numbers mean the box is drawn sooner
+
+var keyToPressToClose = vk_anykey;
 if(argument_count > 5)
 {
-    drawPriority = argument[5]; // Optional arg
+    keyToPressToClose = argument[5];
+}
+
+var drawPriority = 2; // Bigger numbers mean the box takes priority
+if(argument_count > 6)
+{
+    drawPriority = argument[6]; // Optional arg
 }
 
 msgbox = instance_create(xPos, yPos, obj_messagebox);
@@ -16,4 +23,5 @@ if(!is_undefined(msgbox) && instance_exists(msgbox))
     msgbox.text = message;
     msgbox.timeout = stepsToTimeout;
     msgbox.depth = -1*drawPriority;
+    msgbox.keyToExit = keyToPressToClose;
 }

@@ -258,43 +258,80 @@ else
       </action>
       <action>
         <libid>1</libid>
-        <id>601</id>
+        <id>612</id>
         <kind>0</kind>
         <userelative>0</userelative>
-        <isquestion>0</isquestion>
+        <isquestion>-1</isquestion>
         <useapplyto>-1</useapplyto>
         <exetype>1</exetype>
-        <functionname>action_execute_script</functionname>
+        <functionname>action_if_variable</functionname>
         <codestring></codestring>
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
           <argument>
-            <kind>9</kind>
-            <script>showCustomMessage</script>
+            <kind>0</kind>
+            <string>global.messageShowing</string>
           </argument>
           <argument>
             <kind>0</kind>
-            <string>300</string>
+            <string>false</string>
           </argument>
           <argument>
-            <kind>0</kind>
-            <string>10</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>"Your cell has sufficient resources to split! Press [SPACEBAR] to divide!"</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>3</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>50</string>
+            <kind>4</kind>
+            <string>0</string>
           </argument>
         </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>422</id>
+        <kind>1</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>script_execute(showCustomMessage, 300, 10, "Your cell has sufficient resources to split! Press [SPACEBAR] to divide!", 3, -1, vk_space);
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>424</id>
+        <kind>2</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
       </action>
       <action>
         <libid>1</libid>
@@ -725,7 +762,7 @@ if (cellHealth &lt;= 0)
           </argument>
           <argument>
             <kind>0</kind>
-            <string>5</string>
+            <string>self.neededATP</string>
           </argument>
           <argument>
             <kind>4</kind>
@@ -887,7 +924,7 @@ splitAnimation.visible = true;
           </argument>
           <argument>
             <kind>0</kind>
-            <string>self.ATP - 5</string>
+            <string>self.ATP - self.neededATP</string>
           </argument>
         </arguments>
       </action>
