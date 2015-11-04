@@ -80,7 +80,7 @@ visionLevel = random_range(0.5, 1);
 
 //isPhototropic = false;
 //canPhotosythesis = false;
-canPhagocytosis = true; //Engulf smaller cells
+canPhagocytosis = false; //Engulf smaller cells
 
 
 ciliaLevel = irandom(3)-1;
