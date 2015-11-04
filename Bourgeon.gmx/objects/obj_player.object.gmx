@@ -43,6 +43,13 @@ else
     }
     
 }
+
+for(i=0;i&lt;ATP/3;i++)
+{
+    particle = instance_create(x+random(25), y+random(25), obj_particle)
+    particle.parttype = 0
+    particle.image_blend = global.partcolors[particle.parttype];
+}
 </string>
           </argument>
         </arguments>
