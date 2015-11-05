@@ -495,7 +495,7 @@ else if (canBeHurt &amp;&amp; isPlayer &amp;&amp; !global.chemMessageShown[other
     global.chemMessageShown[other.chemtype] = true;
     timeout = 100;
     showCustomMessage(400, 10, "Your cell is immune to " + global.chemicals[other.chemtype], 1, timeout, vk_nokey, 2);
-    showDisplayObject(850, 19, spr_particle, timeout, vk_nokey, global.chemcolors[other.chemtype]);
+    showDisplayObject(850, 19, spr_staticsmoke, timeout, vk_nokey, global.chemcolors[other.chemtype]);
 }
 </string>
           </argument>
