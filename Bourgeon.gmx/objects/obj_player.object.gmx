@@ -545,6 +545,8 @@ else
     // (only difference is it isn't a player object!)
     script_execute(makeClone, player, player.x, player.y, false);
     
+    script_execute(showDisplayObject, 500, 50, spr_particle, -1, vk_nokey, c_black);
+    
     with(player)
     {
         instance_destroy();

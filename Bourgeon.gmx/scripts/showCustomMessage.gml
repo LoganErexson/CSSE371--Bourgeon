@@ -4,7 +4,7 @@ var message = argument[2];
 var lineHeight = argument[3];
 var stepsToTimeout = argument[4];
 
-var keyToPressToClose = vk_anykey;
+var keyToPressToClose = vk_nokey;
 if(argument_count > 5)
 {
     keyToPressToClose = argument[5];

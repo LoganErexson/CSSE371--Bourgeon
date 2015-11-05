@@ -3,7 +3,7 @@
   <spriteName>sprite4</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-3</depth>
+  <depth>-1</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -25,38 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(global.messageShowing)
-{
-    msgbox = instance_find(obj_messagebox, 0);
-    if(msgbox.depth &lt; depth)
-    {
-        instance_destroy();
-    }
-    else
-    {
-        with(msgbox)
-        {
-            instance_destroy();
-        }
-    }
-}
-
-global.messageShowing = true;
-
-text = " ";
-timeout = -1;
-returndist = 17;
-
-keyToExit = vk_nokey;
-
-x_padding = 15;
-y_padding = 8;
-
+            <string>timeout = -1;
 timeoutcounter = 0;
-
-width = sprite_width * image_xscale;
-
-image_alpha = 0.6;
+keyToExit = vk_nokey;
+image_alpha = 0.9;
 </string>
           </argument>
         </arguments>
@@ -85,13 +57,11 @@ image_alpha = 0.6;
     
     if(timeoutcounter &gt; timeout)
     {
-        global.messageShowing = false;
         instance_destroy();
     }
 }
 else if(keyboard_check_pressed(keyToExit))
 {
-    global.messageShowing = false;
     instance_destroy();
 }
 </string>
@@ -113,28 +83,6 @@ else if(keyboard_check_pressed(keyToExit))
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>draw_set_color(c_black);
-draw_text_ext(x + x_padding, y + y_padding, text, returndist, width - x_padding*2);
-</string>
-          </argument>
-        </arguments>
       </action>
     </event>
     <event eventtype="8" enumb="0">

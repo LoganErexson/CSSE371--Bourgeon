@@ -35,6 +35,7 @@
     <script>scripts\setupEnvironment.gml</script>
     <script>scripts\cellAI.gml</script>
     <script>scripts\showCustomMessage.gml</script>
+    <script>scripts\showDisplayObject.gml</script>
     <script>scripts\makeClone.gml</script>
     <script>scripts\teardown.gml</script>
   </scripts>
@@ -49,9 +50,12 @@
     <object>objects\obj_chemcloud</object>
     <object>objects\obj_controller</object>
     <object>objects\obj_player</object>
-    <object>objects\obj_messagebox</object>
-    <object>objects\obj_button</object>
     <object>objects\obj_cell_split</object>
+    <objects name="GUI">
+      <object>objects\obj_messagebox</object>
+      <object>objects\obj_button</object>
+      <object>objects\obj_displayobject</object>
+    </objects>
     <objects name="Start Menu">
       <object>objects\obj_start_button</object>
       <object>objects\obj_options_button</object>
@@ -80,7 +84,7 @@
     <rtf>help.rtf</rtf>
   </help>
   <TutorialState>
-    <IsTutorial>0</IsTutorial>
+    <IsTutorial>-1</IsTutorial>
     <TutorialName>C:\Users\erexsolr\AppData\Local\GameMaker-Studio\tutorials\08_Levels_And_Saving\</TutorialName>
     <TutorialPage>0</TutorialPage>
   </TutorialState>
