@@ -15,6 +15,12 @@ if(argument_count > 5)
     tintColor = argument[5];
 }
 
+var drawPriority = 3; // Bigger numbers mean object takes priority
+if(argument_count > 6)
+{
+    drawPriority = argument[6];
+}
+
 displayobj = instance_create(xPos, yPos, obj_displayobject);
 if(!is_undefined(displayobj) && instance_exists(displayobj))
 {
@@ -23,6 +29,7 @@ if(!is_undefined(displayobj) && instance_exists(displayobj))
     displayobj.sprite_index = sprite;
     displayobj.keyToExit = keyToExit;
     displayobj.timeout = timeout;
+    displayobj.depth = -1 * drawPriority;
     if(tintColor != -1)
     {
         displayobj.image_blend = tintColor;

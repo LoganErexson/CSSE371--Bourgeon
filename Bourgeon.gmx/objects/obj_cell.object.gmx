@@ -530,7 +530,9 @@ image_yscale = scaleFactor* 0.30;
 else if (isPlayer &amp;&amp; !global.partMessageShown[other.parttype])
 {
     global.partMessageShown[other.parttype] = true;
-    showCustomMessage(400, 10, "Your cell is incapable of consuming " + global.particles[other.parttype], 1, 80, vk_nokey, 2);
+    timeout = 100;
+    showCustomMessage(400, 10, "Your cell is incapable of consuming " + global.particles[other.parttype], 1, timeout, vk_nokey, 2);
+    script_execute(showDisplayObject, 850, 19, spr_particle, timeout, vk_nokey, global.partcolors[other.parttype]);
 }
 </string>
           </argument>

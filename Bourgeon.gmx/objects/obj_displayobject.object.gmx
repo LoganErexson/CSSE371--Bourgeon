@@ -3,7 +3,7 @@
   <spriteName>sprite4</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-1</depth>
+  <depth>-4</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -25,10 +25,26 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>timeout = -1;
+            <string>obj = instance_find(obj_displayobject, 0);
+if(!is_undefined(obj) &amp;&amp; instance_exists(obj) &amp;&amp; id != obj.id)
+{
+    if(obj.depth &lt; depth)
+    {
+        instance_destroy();
+    }
+    else
+    {
+        with(obj)
+        {
+            instance_destroy();
+        }
+    }
+}
+
+timeout = -1;
 timeoutcounter = 0;
 keyToExit = vk_nokey;
-image_alpha = 0.9;
+//image_alpha = 0.9; &lt;-- Causes some issues when multiple end up on top of one another
 </string>
           </argument>
         </arguments>
