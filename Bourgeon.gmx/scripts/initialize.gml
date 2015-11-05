@@ -20,7 +20,7 @@ globalvar numParticles;
 global.numParticles = 0;
 
 // Setup chemical and corresponding color array
-globalvar chemicals, chemcolors;
+globalvar chemicals, chemcolors, chemMessageShown;
 
 global.chemicals[0] = "NaCl";
 global.chemcolors[0] = c_white;
@@ -110,6 +110,10 @@ var i;
 for(i=0; i<array_length_1d(global.particles); i++) // generate array for food particle messages so they are not displayed multiple times
 {
     global.partMessageShown[i] = false;
+}
+for(i=0; i<array_length_1d(global.chemicals); i++) // generate array for chem cloud messages so they are not displayed multiple times
+{
+    global.chemMessageShown[i] = false;
 }
 
 // Add more particles as needed....
