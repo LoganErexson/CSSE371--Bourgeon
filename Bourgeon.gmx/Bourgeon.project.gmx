@@ -70,6 +70,7 @@
       <object>objects\obj_quitgame_button</object>
       <object>objects\obj_pause</object>
     </objects>
+    <object>objects\obj_bubble_emitter</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_mainmenu</room>
