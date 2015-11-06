@@ -66,6 +66,7 @@ if(isMutated) //If the clone should be mutated, change it's values
     for(var i = 0; i<numMutations; i++)
     {
         traitNum = irandom(9) //Number for the trait that will be changed
+        traitNum = 2;
         switch(traitNum)
         {
             case 0: //Change in size
@@ -97,13 +98,13 @@ if(isMutated) //If the clone should be mutated, change it's values
             case 2: //Random color change
                 var rgb = irandom(2);
                 if(rgb==0){
-                    newCell.image_blend +=$000033*choose(-1,1)
+                    newCell.image_blend +=$000033//*choose(-1,1)
                 }
                 else if(rgb==1){
-                    newCell.image_blend +=$003300*choose(-1,1)
+                    newCell.image_blend +=$003300//*choose(-1,1)
                 }
                 else{
-                    newCell.image_blend +=$330000*choose(-1,1)
+                    newCell.image_blend +=$330000//*choose(-1,1)
                 }
                 break;
             case 3: //Change in temperature tolerance

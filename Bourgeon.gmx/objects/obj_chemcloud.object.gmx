@@ -30,8 +30,8 @@
 chemtype = random(array_length_1d(global.chemicals));
 clouddiameter = random(350) + 170; // Diameter of this cloud
 
-image_xscale = (clouddiameter/10)*image_xscale*0.4;
-image_yscale = (clouddiameter/10)*image_yscale*0.4;
+image_xscale = (clouddiameter/20)*image_xscale*0.75;
+image_yscale = (clouddiameter/20)*image_yscale*0.75;
 
 part_emitter_region(global.P_System, Particle_Emitter, x - (clouddiameter/2), x + (clouddiameter/2), y - (clouddiameter/2), y + (clouddiameter/2), ps_shape_ellipse, ps_distr_gaussian);
 part_emitter_stream(global.P_System, Particle_Emitter, global.chemparticles[chemtype], 5);

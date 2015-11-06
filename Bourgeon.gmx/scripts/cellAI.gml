@@ -113,28 +113,30 @@ for (var i = 0; i <array_length_1d(_particle_list); i++ )
         _newDistance= point_distance(_particle_list[i].x, _particle_list[i].y, _newX, _newY)
         //Increase the magnitude of the value the closer _cell already is
         //to the particle as it is more accessible in this case (Prevents moving back and forth)
-        if(_newDistance<3*_radius/4)
-        {
-            if(_newDistance<_radius/2)
+        if((_distance-_newDistance)>0){
+            if(_newDistance<3*_radius/4)
             {
-                if(_newDistance<_radius/3)
+                if(_newDistance<_radius/2)
                 {
-                    if(_newDistance<_radius/4){
-                        _dirValues[j] += 8*(_distance-_newDistance)
+                    if(_newDistance<_radius/3)
+                    {
+                        if(_newDistance<_radius/4){
+                            _dirValues[j] += 8*(_distance-_newDistance)
+                        }
+                        else{
+                            _dirValues[j] += 4*(_distance-_newDistance)
+                        }
                     }
-                    else{
-                        _dirValues[j] += 4*(_distance-_newDistance)
-                    }
+                    else
+                        _dirValues[j] += 3*(_distance-_newDistance)
                 }
                 else
-                    _dirValues[j] += 3*(_distance-_newDistance)
+                    _dirValues[j] += 2*(_distance-_newDistance)
             }
             else
-                _dirValues[j] += 2*(_distance-_newDistance)
-        }
-        else
-        {
-            _dirValues[j] += (_distance-_newDistance)
+            {
+                _dirValues[j] += (_distance-_newDistance)
+            }
         }
         
 
@@ -145,7 +147,7 @@ for (var i = 0; i <array_length_1d(_particle_list); i++ )
 for (var i = 0; i <array_length_1d(_cloud_list); i++ )
 {
     //Current distance from the cloud's perimeter
-    _distance = point_distance(_cloud_list[i].x, _cloud_list[i].y, _cell.x, _cell.y)+ _cloud_list[i].clouddiameter/2
+    _distance = point_distance(_cloud_list[i].x, _cloud_list[i].y, _cell.x, _cell.y)
     
     for(var j = 0; j < array_length_1d(_directions); j++)
     {
@@ -153,34 +155,41 @@ for (var i = 0; i <array_length_1d(_cloud_list); i++ )
         //from that point to the cloud 
         _newX = _cell.x + _cell.speed*_turnSize*cos(_directions[j])
         _newY = _cell.y + _cell.speed*_turnSize*sin(_directions[j])
-        _newDistance= point_distance(_cloud_list[i].x, _cloud_list[i].y, _newX, _newY) + _cloud_list[i].clouddiameter/2
+        _newDistance= point_distance(_cloud_list[i].x, _cloud_list[i].y, _newX, _newY)
+        var cloudRadius = (_cloud_list[i].clouddiameter/2)//*0.75;
         
-        //Increase the magnitude of the value the closer _cell already is
-        //to the cloud as there is a higher risk of entering it
-        if(_newDistance<3*_radius/4)
+        if(_newDistance<=cloudRadius||_distance<=cloudRadius)
         {
-            if(_newDistance<_radius/2)
+            _dirValues[j] += -9999999
+           //Increase the magnitude of the value the closer _cell already is
+            //to the cloud as there is a higher risk of entering it
+           /* if(_newDistance<3*_cloud_list[i].clouddiameter/8)
             {
-                if(_newDistance<_radius/3)
-                {   
-                        _dirValues[j] += 12*(_newDistance-_distance)
+                if(_newDistance<_cloud_list[i].clouddiameter/4)
+                {
+                    if(_newDistance<_cloud_list[i].clouddiameter/6)
+                    {   
+                            _dirValues[j] += 12*(_newDistance-_distance)
+                    }
+                    else
+                    {
+                        _dirValues[j] += 9*(_newDistance-_distance)
+                    }
                 }
                 else
                 {
-                    _dirValues[j] += 9*(_newDistance-_distance)
+                    _dirValues[j] += 6*(_newDistance-_distance)
                 }
             }
             else
             {
-                _dirValues[j] += 6*(_newDistance-_distance)
-            }
+                _dirValues[j] += 2*(_newDistance-_distance)
+            } */
         }
-        else
-        {
-            _dirValues[j] += 3*(_newDistance-_distance)
-        }
+
     }
 }
+
 
 for(var j = 0; j < array_length_1d(_directions); j++)
 {
