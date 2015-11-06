@@ -6,6 +6,9 @@ globalvar controller;
 globalvar aminoacidmsgshown;
 global.aminoacidmsgshown = false;
 
+globalvar tempmsgshown;
+global.tempmsgshown = false;
+
 globalvar pauselocked;
 global.pauselocked = false;
 globalvar paused;

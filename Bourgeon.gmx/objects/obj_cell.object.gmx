@@ -224,6 +224,13 @@ else
     {
         cellHealth -= 10;
         canBeHurt = false;
+        
+        if(!global.tempmsgshown &amp;&amp; isPlayer)
+        {
+            global.tempmsgshown = true;
+            message = "The temperature in this area is too extreme for your cell! Watch out for the temperature gauge in the top left turning red, you will take damage from this!##Press [SPACEBAR] to continue.";
+            showCustomMessage(280, 200, message, 5, -1, vk_space, 2);
+        }
     }
     
     // If the cell is moving, move the particle emitter
@@ -553,7 +560,7 @@ if(canConsumeParticle[other.parttype])
                 message = "That was the amino acid " + global.particles[other.parttype] + ".#Your cell can consume it for internal processes.";
             }
             showCustomMessage(400, 10, message, 2, timeout, vk_nokey, 2);
-            showDisplayObject(850, 30, spr_particle, timeout, vk_nokey, global.partcolors[other.parttype]);
+            showDisplayObject(880, 30, spr_particle, timeout, vk_nokey, global.partcolors[other.parttype]);
         }
     }
 }
@@ -561,7 +568,7 @@ else if (isPlayer &amp;&amp; !global.partMessageShown[other.parttype])
 {
     global.partMessageShown[other.parttype] = true;
     showCustomMessage(400, 10, "Your cell is incapable of consuming " + global.particles[other.parttype], 1, timeout, vk_nokey, 2);
-    showDisplayObject(850, 19, spr_particle, timeout, vk_nokey, global.partcolors[other.parttype]);
+    showDisplayObject(880, 19, spr_particle, timeout, vk_nokey, global.partcolors[other.parttype]);
 }
 </string>
           </argument>
