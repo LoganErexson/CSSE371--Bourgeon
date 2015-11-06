@@ -236,7 +236,7 @@ if(array_length_1d(maxDirections)>0&&array_length_1d(maxDirections)<16){
 //If all the directions have the same value, return a either the cell's current direction
 //or random direction adjusted as above
 
-if(irandom(5)==0){
+if(irandom(7)==0){
     return -_directions[irandom(array_length_1d(_directions)-1)]*180/pi
 }
 return _cell.direction
