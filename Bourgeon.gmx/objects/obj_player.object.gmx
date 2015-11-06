@@ -549,6 +549,8 @@ else
     {
         instance_destroy();
     }
+    image_xscale = scaleFactor * 0.30;
+    image_yscale = scaleFactor * 0.30;
     splitAnimation = instance_find(obj_cell_split, 0);
     splitAnimation.visible = false;
     visible = true;
@@ -927,7 +929,7 @@ if(irandom(1) ==1)
             <string>visible = false;
 splitAnimation = instance_find(obj_cell_split, 0);
 splitAnimation.x = x;
-splitAnimation.y = y;
+splitAnimation.y = y - 5;
 splitAnimation.image_index = 0;
 splitAnimation.image_speed = 0.5;
 player = instance_find(obj_player, 0);
@@ -937,8 +939,20 @@ if(id == player.id)
 }
 x = x + moveAmount;
 player.visible = false;
-image_xscale = scaleFactor* 0.30; 
-image_yscale = scaleFactor* 0.30;
+//image_xscale = scaleFactor* 0.30; 
+//image_yscale = scaleFactor* 0.30;
+image_xscale = 1;
+image_yscale = 1;
+
+image_xscale = 100/sprite_width;
+image_yscale = 100/sprite_height;
+
+player.image_xscale = 1;
+player.image_yscale = 1;
+
+player.image_xscale = 100/player.sprite_width;
+player.image_yscale = 100/player.sprite_height;
+
 ATP = (ATP-neededATP)/2;
 splitAnimation.visible = true;
 
