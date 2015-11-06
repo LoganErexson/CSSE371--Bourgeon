@@ -79,7 +79,13 @@ image_alpha = 0.6;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(timeout &gt; 0)
+            <string>if(keyToExit != vk_nokey)
+{
+    global.paused = true;
+    global.pauselocked = true;
+}
+
+if(timeout &gt; 0)
 {
     timeoutcounter++;
     
@@ -92,6 +98,8 @@ image_alpha = 0.6;
 else if(keyboard_check_pressed(keyToExit))
 {
     global.messageShowing = false;
+    global.pauselocked = false;
+    global.paused = false;
     instance_destroy();
 }
 </string>

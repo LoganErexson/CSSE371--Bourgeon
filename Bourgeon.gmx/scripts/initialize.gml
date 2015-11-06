@@ -3,6 +3,11 @@ randomize();
 
 globalvar controller;
 
+globalvar aminoacidmsgshown;
+global.aminoacidmsgshown = false;
+
+globalvar pauselocked;
+global.pauselocked = false;
 globalvar paused;
 global.paused = false;
 

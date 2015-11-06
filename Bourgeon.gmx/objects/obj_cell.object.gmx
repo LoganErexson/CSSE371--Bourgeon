@@ -519,7 +519,7 @@ else if (canBeHurt &amp;&amp; isPlayer &amp;&amp; !global.chemMessageShown[other
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var timeout = 100;
+            <string>var timeout = 134;
 if(canConsumeParticle[other.parttype])
 {
     with(other) {
@@ -538,13 +538,23 @@ if(canConsumeParticle[other.parttype])
     if(isPlayer &amp;&amp; !global.partMessageShown[other.parttype])
     {
         var message = global.partmessages[other.parttype];
-        if(message == "")
-        {
-            message = "Your cell can consume " + global.particles[other.parttype]
-        }
         global.partMessageShown[other.parttype] = true;
-        showCustomMessage(400, 10, message, 2, timeout, vk_nokey, 2);
-        showDisplayObject(850, 30, spr_particle, timeout, vk_nokey, global.partcolors[other.parttype]);
+       
+        if(!global.aminoacidmsgshown &amp;&amp; message == "")
+        {
+            global.aminoacidmsgshown = true;
+            message = "Your cell is able to absorb amino acids to use directly for#functions within the cell. That was the amino acid " + global.particles[other.parttype] + ".##Press [SPACEBAR] to continue.";
+            showCustomMessage(280, 200, message, 5, -1, vk_space, 2);
+        }
+        else
+        {
+            if(message == "")
+            {
+                message = "That was the amino acid " + global.particles[other.parttype] + ".#Your cell can consume it for internal processes.";
+            }
+            showCustomMessage(400, 10, message, 2, timeout, vk_nokey, 2);
+            showDisplayObject(850, 30, spr_particle, timeout, vk_nokey, global.partcolors[other.parttype]);
+        }
     }
 }
 else if (isPlayer &amp;&amp; !global.partMessageShown[other.parttype])

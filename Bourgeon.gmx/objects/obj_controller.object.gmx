@@ -185,7 +185,7 @@ shader_reset();
             <kind>1</kind>
             <string>if(global.paused &amp;&amp; global.playerIsAlive)
 {
-    if(!global.twoPlayersActive)
+    if(!global.pauselocked &amp;&amp; !global.twoPlayersActive)
     {
         shader_enabled = !shader_enabled;
         global.paused = false;
