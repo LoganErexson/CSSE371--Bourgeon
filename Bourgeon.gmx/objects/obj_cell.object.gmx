@@ -76,13 +76,26 @@ visionLevel = random_range(0.5, 1);
 
 //isPhototropic = false;
 //canPhotosythesis = false;
-canPhagocytosis = false; //Engulf smaller cells
 
+if(irandom(9)==0){//Engulf smaller cells
+    canPhagocytosis = true;
+}
+else{
+    canPhagocytosis = false;
+}
 
-ciliaLevel = 0;
-flagellaLevel = 0;
-if(ciliaLevel&lt;0) { ciliaLevel = 0}
-if(flagellaLevel&lt;0) { flagellaLevel = 0}
+if(irandom(4)==0){
+    ciliaLevel =1
+}
+else{
+    ciliaLevel = 0;
+}
+if(irandom(4)==0){
+    flagellaLevel = 1;
+}
+else{
+    flagellaLevel = 0;
+}
 cellSpeed =(flagellaLevel +ciliaLevel)+2*(2-scaleFactor)+2
 speed = cellSpeed
 if(isPlayer)
