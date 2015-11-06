@@ -14,7 +14,10 @@
 global.learnedToPlay = false;
 
 script_execute(initialize);
-//room_goto(rm_main);</code>
+//room_goto(rm_main);
+Particle_Emitter = part_emitter_create(global.P_System_Start);
+part_emitter_region(global.P_System_Start, Particle_Emitter, 0, room_width, 0, room_height, ps_shape_rectangle, ps_distr_linear);
+part_emitter_stream(global.P_System_Start, Particle_Emitter, global.Bubble, 1);</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>
