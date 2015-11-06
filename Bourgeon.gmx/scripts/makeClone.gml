@@ -66,7 +66,6 @@ if(isMutated) //If the clone should be mutated, change it's values
     for(var i = 0; i<numMutations; i++)
     {
         traitNum = irandom(9) //Number for the trait that will be changed
-        traitNum = 2;
         switch(traitNum)
         {
             case 0: //Change in size

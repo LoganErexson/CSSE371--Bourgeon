@@ -160,10 +160,9 @@ for (var i = 0; i <array_length_1d(_cloud_list); i++ )
         
         if(_newDistance<=cloudRadius||_distance<=cloudRadius)
         {
-            _dirValues[j] += -9999999
-           //Increase the magnitude of the value the closer _cell already is
+            //Increase the magnitude of the value the closer _cell already is
             //to the cloud as there is a higher risk of entering it
-           /* if(_newDistance<3*_cloud_list[i].clouddiameter/8)
+            if(_newDistance<3*_cloud_list[i].clouddiameter/8)
             {
                 if(_newDistance<_cloud_list[i].clouddiameter/4)
                 {
@@ -184,7 +183,7 @@ for (var i = 0; i <array_length_1d(_cloud_list); i++ )
             else
             {
                 _dirValues[j] += 2*(_newDistance-_distance)
-            } */
+            } 
         }
 
     }
