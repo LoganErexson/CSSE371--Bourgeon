@@ -1,8 +1,6 @@
 // Randomize the seed!
 randomize();
 
-globalvar controller;
-
 globalvar aminoacidmsgshown;
 global.aminoacidmsgshown = false;
 

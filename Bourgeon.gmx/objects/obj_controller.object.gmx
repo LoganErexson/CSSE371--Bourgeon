@@ -183,42 +183,47 @@ shader_reset();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(global.paused &amp;&amp; global.playerIsAlive)
+            <string>if(!global.pauselocked)
 {
-    if(!global.pauselocked &amp;&amp; !global.twoPlayersActive)
+
+    if(global.paused &amp;&amp; global.playerIsAlive)
     {
+        if(!global.twoPlayersActive)
+        {
+            shader_enabled = !shader_enabled;
+            global.paused = false;
+        }
+    
+        pauseText.visible = false;
+        resumeButton.visible = false;
+        restartButton.visible = false;
+        quitgameButton.visible = false;
+    }
+    else
+    {
+        global.paused = true;
         shader_enabled = !shader_enabled;
-        global.paused = false;
+        
+        if(global.playerIsAlive)
+        {
+            pauseText.x = view_xview[0]+320;
+            pauseText.y = view_yview[0]+50;
+            pauseText.visible = true;
+            
+            resumeButton.x = view_xview[0] + 320;
+            resumeButton.y = view_yview[0] + 150;
+            resumeButton.visible = true;
+        }
+        
+        restartButton.x = view_xview[0] + 320;
+        restartButton.y = view_yview[0] + 215;
+        restartButton.visible = true;
+        
+        quitgameButton.x = view_xview[0] + 320;
+        quitgameButton.y = view_yview[0] + 280;
+        quitgameButton.visible = true;
     }
 
-    pauseText.visible = false;
-    resumeButton.visible = false;
-    restartButton.visible = false;
-    quitgameButton.visible = false;
-}
-else
-{
-    global.paused = true;
-    shader_enabled = !shader_enabled;
-    
-    if(global.playerIsAlive)
-    {
-        pauseText.x = view_xview[0]+320;
-        pauseText.y = view_yview[0]+50;
-        pauseText.visible = true;
-        
-        resumeButton.x = view_xview[0] + 320;
-        resumeButton.y = view_yview[0] + 150;
-        resumeButton.visible = true;
-    }
-    
-    restartButton.x = view_xview[0] + 320;
-    restartButton.y = view_yview[0] + 215;
-    restartButton.visible = true;
-    
-    quitgameButton.x = view_xview[0] + 320;
-    quitgameButton.y = view_yview[0] + 280;
-    quitgameButton.visible = true;
 }
 </string>
           </argument>
