@@ -20,6 +20,7 @@
       <sprite>sprites\spr_start_button</sprite>
       <sprite>sprites\spr_options_button</sprite>
       <sprite>sprites\spr_fire</sprite>
+      <sprite>sprites\spr_start_button2</sprite>
     </sprites>
     <sprites name="Pause Menu">
       <sprite>sprites\spr_pause</sprite>
