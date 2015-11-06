@@ -845,6 +845,31 @@ if (cellHealth &lt;= 0)
       </action>
       <action>
         <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>moveAmount = 45;
+if(irandom(1) ==1)
+{
+    moveAmount = -45;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
         <id>601</id>
         <kind>0</kind>
         <userelative>0</userelative>
@@ -867,7 +892,7 @@ if (cellHealth &lt;= 0)
           </argument>
           <argument>
             <kind>0</kind>
-            <string>x-45</string>
+            <string>x-moveAmount</string>
           </argument>
           <argument>
             <kind>0</kind>
@@ -910,7 +935,7 @@ if(id == player.id)
 {
     player = instance_find(obj_player, 1);
 }
-x = x + 45;
+x = x + moveAmount;
 player.visible = false;
 image_xscale = scaleFactor* 0.30; 
 image_yscale = scaleFactor* 0.30;
