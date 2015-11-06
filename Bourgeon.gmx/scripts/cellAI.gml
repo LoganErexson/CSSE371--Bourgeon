@@ -103,42 +103,53 @@ for (var i = 0; i <array_length_1d(_cell_list); i++ )
 for (var i = 0; i <array_length_1d(_particle_list); i++ )
 {
     _distance = point_distance(_particle_list[i].x, _particle_list[i].y, _cell.x, _cell.y)//Current distance from the particle
-    
-    for(var j = 0; j < array_length_1d(_directions); j++)
+    var isInCloud =false;
+    for(var k = 0; k< array_length_1d(_cloud_list); k++)
     {
-        //Find the new position if _cell moves in current direction and the distance
-        //from that point to the particle
-        _newX = _cell.x + _cell.speed*_turnSize*cos(_directions[j])
-        _newY = _cell.y + _cell.speed*_turnSize*sin(_directions[j])
-        _newDistance= point_distance(_particle_list[i].x, _particle_list[i].y, _newX, _newY)
-        //Increase the magnitude of the value the closer _cell already is
-        //to the particle as it is more accessible in this case (Prevents moving back and forth)
-        if((_distance-_newDistance)>0){
-            if(_newDistance<3*_radius/4)
-            {
-                if(_newDistance<_radius/2)
-                {
-                    if(_newDistance<_radius/3)
-                    {
-                        if(_newDistance<_radius/4){
-                            _dirValues[j] += 8*(_distance-_newDistance)
-                        }
-                        else{
-                            _dirValues[j] += 4*(_distance-_newDistance)
-                        }
-                    }
-                    else
-                        _dirValues[j] += 3*(_distance-_newDistance)
-                }
-                else
-                    _dirValues[j] += 2*(_distance-_newDistance)
-            }
-            else
-            {
-                _dirValues[j] += (_distance-_newDistance)
-            }
+        _partDistance= point_distance(_particle_list[i].x, _particle_list[i].y, _cloud_list[k].x, _cloud_list[k].y)
+        if(_partDistance<=(_cloud_list[k].clouddiameter/2)*0.75)
+        {
+            isInCloud = true;
+            break;
         }
         
+    }
+    if(!isInCloud){
+        for(var j = 0; j < array_length_1d(_directions); j++)
+        {
+            //Find the new position if _cell moves in current direction and the distance
+            //from that point to the particle
+            _newX = _cell.x + _cell.speed*_turnSize*cos(_directions[j])
+            _newY = _cell.y + _cell.speed*_turnSize*sin(_directions[j])
+            _newDistance= point_distance(_particle_list[i].x, _particle_list[i].y, _newX, _newY)
+            //Increase the magnitude of the value the closer _cell already is
+            //to the particle as it is more accessible in this case (Prevents moving back and forth)
+            if((_distance-_newDistance)>0){
+                if(_newDistance<3*_radius/4)
+                {
+                    if(_newDistance<_radius/2)
+                    {
+                        if(_newDistance<_radius/3)
+                        {
+                            if(_newDistance<_radius/4){
+                                _dirValues[j] += 8*(_distance-_newDistance)
+                            }
+                            else{
+                                _dirValues[j] += 4*(_distance-_newDistance)
+                            }
+                        }
+                        else
+                            _dirValues[j] += 3*(_distance-_newDistance)
+                    }
+                    else
+                        _dirValues[j] += 2*(_distance-_newDistance)
+                }
+                else
+                {
+                    _dirValues[j] += (_distance-_newDistance)
+                }
+            }
+        }        
 
     }
 }
@@ -156,34 +167,12 @@ for (var i = 0; i <array_length_1d(_cloud_list); i++ )
         _newX = _cell.x + _cell.speed*_turnSize*cos(_directions[j])
         _newY = _cell.y + _cell.speed*_turnSize*sin(_directions[j])
         _newDistance= point_distance(_cloud_list[i].x, _cloud_list[i].y, _newX, _newY)
-        var cloudRadius = (_cloud_list[i].clouddiameter/2)//*0.75;
+        var cloudRadius = (_cloud_list[i].clouddiameter/2)*0.75;
         
         if(_newDistance<=cloudRadius||_distance<=cloudRadius)
         {
-            //Increase the magnitude of the value the closer _cell already is
-            //to the cloud as there is a higher risk of entering it
-            if(_newDistance<3*_cloud_list[i].clouddiameter/8)
-            {
-                if(_newDistance<_cloud_list[i].clouddiameter/4)
-                {
-                    if(_newDistance<_cloud_list[i].clouddiameter/6)
-                    {   
-                            _dirValues[j] += 12*(_newDistance-_distance)
-                    }
-                    else
-                    {
-                        _dirValues[j] += 9*(_newDistance-_distance)
-                    }
-                }
-                else
-                {
-                    _dirValues[j] += 6*(_newDistance-_distance)
-                }
-            }
-            else
-            {
-                _dirValues[j] += 2*(_newDistance-_distance)
-            } 
+            _dirValues[j] += 12*(_newDistance-cloudRadius)
+             
         }
 
     }
