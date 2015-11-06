@@ -5,6 +5,9 @@ part_system_depth(global.P_System, -2);             //Particles draw in front of
 global.P_System_Behind = part_system_create();
 part_system_depth(global.P_System_Behind, 0);                    //Particles draw behind everything
 
+global.P_System_Start = part_system_create();
+part_system_depth(global.P_System_Start, 0);                    //Particles draw behind everything
+
 
 // Small bubbles
 global.Bubble = part_type_create();

@@ -10,7 +10,9 @@
   <persistent>0</persistent>
   <colour>12615680</colour>
   <showcolour>-1</showcolour>
-  <code>// Generate chem clouds and other cells
+  <code>part_system_destroy(global.P_System_Start);
+
+// Generate chem clouds and other cells
 script_execute(setupEnvironment);
 
 // Create background floaties
