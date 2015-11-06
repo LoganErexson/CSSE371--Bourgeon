@@ -16,7 +16,13 @@ script_execute(setupEnvironment);
 // Create background floaties
 Particle_Emitter = part_emitter_create(global.P_System);
 part_emitter_region(global.P_System, Particle_Emitter, 0, room_width, 0, room_height, ps_shape_rectangle, ps_distr_linear);
-part_emitter_stream(global.P_System, Particle_Emitter, global.Bubble, 1);</code>
+part_emitter_stream(global.P_System, Particle_Emitter, global.Bubble, 1);
+
+if(!global.learnedToPlay)
+{
+    showCustomMessage(280, 200, "Welcome to Bourgeon!#Your cell is in the center of the screen. It will follow your mouse at all times. Your goal is to pick up enough nutrients (small colored dots) to be able to split!##Press [SPACEBAR] to continue.", 6, -1, vk_space, 2);
+    global.learnedToPlay = true;
+}</code>
   <enableViews>-1</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>
