@@ -519,7 +519,8 @@ else if (canBeHurt &amp;&amp; isPlayer &amp;&amp; !global.chemMessageShown[other
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(canConsumeParticle[other.parttype])
+            <string>var timeout = 100;
+if(canConsumeParticle[other.parttype])
 {
     with(other) {
         instance_destroy()
@@ -533,13 +534,24 @@ else if (canBeHurt &amp;&amp; isPlayer &amp;&amp; !global.chemMessageShown[other
     if(other.parttype == 1){
         ATP++;
     }
+    
+    if(isPlayer &amp;&amp; !global.partMessageShown[other.parttype])
+    {
+        var message = global.partmessages[other.parttype];
+        if(message == "")
+        {
+            message = "Your cell can consume " + global.particles[other.parttype]
+        }
+        global.partMessageShown[other.parttype] = true;
+        showCustomMessage(400, 10, message, 2, timeout, vk_nokey, 2);
+        showDisplayObject(850, 30, spr_particle, timeout, vk_nokey, global.partcolors[other.parttype]);
+    }
 }
 else if (isPlayer &amp;&amp; !global.partMessageShown[other.parttype])
 {
     global.partMessageShown[other.parttype] = true;
-    timeout = 100;
     showCustomMessage(400, 10, "Your cell is incapable of consuming " + global.particles[other.parttype], 1, timeout, vk_nokey, 2);
-    script_execute(showDisplayObject, 850, 19, spr_particle, timeout, vk_nokey, global.partcolors[other.parttype]);
+    showDisplayObject(850, 19, spr_particle, timeout, vk_nokey, global.partcolors[other.parttype]);
 }
 </string>
           </argument>

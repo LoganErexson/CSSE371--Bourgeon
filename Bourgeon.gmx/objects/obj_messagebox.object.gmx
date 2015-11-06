@@ -45,7 +45,7 @@ global.messageShowing = true;
 
 text = " ";
 timeout = -1;
-returndist = 17;
+returndist = 21;
 
 keyToExit = vk_nokey;
 
