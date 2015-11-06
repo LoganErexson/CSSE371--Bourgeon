@@ -166,29 +166,6 @@ shader_reset();
         </arguments>
       </action>
     </event>
-    <event eventtype="10" enumb="32">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>shader_enabled = !shader_enabled;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="10" enumb="27">
       <action>
         <libid>1</libid>
@@ -206,7 +183,9 @@ shader_reset();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(global.paused &amp;&amp; global.playerIsAlive)
+            <string>shader_enabled = !shader_enabled;
+
+if(global.paused &amp;&amp; global.playerIsAlive)
 {
     if(!global.twoPlayersActive)
     {
