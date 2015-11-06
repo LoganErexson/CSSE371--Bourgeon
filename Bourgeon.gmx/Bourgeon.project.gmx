@@ -15,7 +15,7 @@
     <sprite>sprites\spr_chemcloud</sprite>
     <sprite>sprites\spr_cell_split</sprite>
     <sprite>sprites\spr_staticsmoke</sprite>
-    <sprite>sprites\sprite4</sprite>
+    <sprite>sprites\spr_message</sprite>
     <sprites name="Start Menu">
       <sprite>sprites\spr_start_button</sprite>
       <sprite>sprites\spr_options_button</sprite>
@@ -85,7 +85,7 @@
     <rtf>help.rtf</rtf>
   </help>
   <TutorialState>
-    <IsTutorial>-1</IsTutorial>
+    <IsTutorial>0</IsTutorial>
     <TutorialName>C:\Users\erexsolr\AppData\Local\GameMaker-Studio\tutorials\08_Levels_And_Saving\</TutorialName>
     <TutorialPage>0</TutorialPage>
   </TutorialState>

@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>isPlayer = object_get_name(id.object_index)=="obj_player";
-
+image_alpha = 0.6
 // Cell attributes
 
 // Chemicals this cell can withstand

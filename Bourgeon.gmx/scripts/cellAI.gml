@@ -75,7 +75,7 @@ for (var i = 0; i <array_length_1d(_cell_list); i++ )
         //give this move a higher value the closer it moves to the cell
             distVal = 3*(_distance-_newDistance)
         }
-        else if((_cell.image_xscale - _cell_list[i].image_xscale)<0){
+        else if(_cell_list[i].canPhagocytosis){
         //The other cell is bigger so give this move a higher value the
         //farther _cell moves from the other
             distVal = 3*(_newDistance-_distance)
@@ -233,5 +233,10 @@ if(array_length_1d(maxDirections)>0&&array_length_1d(maxDirections)<16){
     // Return a random direction that was or tied for highest value
     return -_inst*180/pi //Convert to degrees and adjust for reversed angle direction
 }
-//If all the directions have the same value, return a random direction adjusted as above
-return -_directions[irandom(array_length_1d(_directions)-1)]*180/pi
+//If all the directions have the same value, return a either the cell's current direction
+//or random direction adjusted as above
+
+if(irandom(5)==0){
+    return -_directions[irandom(array_length_1d(_directions)-1)]*180/pi
+}
+return _cell.direction

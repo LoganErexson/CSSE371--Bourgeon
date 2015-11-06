@@ -59,18 +59,17 @@ if(isMutated) //If the clone should be mutated, change it's values
         numMutations =1
     else if(rand<7)//22% chance for two mutations(2/9)
         numMutations = 2
-    else if (rand==7)//11% chance for three mutations(1/9)
+    else //22% chance for negative mutation(2/9)
         numMutations = 3
-    else //11% chance for four mutations (1/9) One mutation will be negative
-        numMutations = 4
-        
+    
+    var newConsumeOrResist = false;
     for(var i = 0; i<numMutations; i++)
     {
         traitNum = irandom(9) //Number for the trait that will be changed
         switch(traitNum)
         {
             case 0: //Change in size
-                if(i!=3){//Size increase
+                if(i!=2){//Size increase
                     if(newCell.scaleFactor<2)//If less than max
                         newCell.scaleFactor += 0.25
                 }
@@ -84,7 +83,7 @@ if(isMutated) //If the clone should be mutated, change it's values
                 newCell.neededATP = newCell.scaleFactor*10
                 break;
             case 1: //Change in health
-                if(i!=3){//Increase
+                if(i!=2){//Increase
                     if(newCell.maxHealth<=280){//If won't increase past max
                         newCell.maxHealth +=20
                         newCell.cellHealth = newCell.maxHealth
@@ -96,10 +95,19 @@ if(isMutated) //If the clone should be mutated, change it's values
                 }
                 break;
             case 2: //Random color change
-                newCell.image_blend = random(c_white)
+                var rgb = irandom(2);
+                if(rgb==0){
+                    newCell.image_blend +=$000033*choose(-1,1)
+                }
+                else if(rgb==1){
+                    newCell.image_blend +=$003300*choose(-1,1)
+                }
+                else{
+                    newCell.image_blend +=$330000*choose(-1,1)
+                }
                 break;
             case 3: //Change in temperature tolerance
-                if(i!=3){
+                if(i!=2){
                     if(irandom(1))
                         newCell.maxTemp += 5
                     else
@@ -114,7 +122,7 @@ if(isMutated) //If the clone should be mutated, change it's values
                 }
                 break;
             case 4://Change in vision
-                if(i!=3){
+                if(i!=2){
                     if(newCell.visionLevel<=0.85)
                         newCell.visionLevel+=0.15
                 }
@@ -124,7 +132,7 @@ if(isMutated) //If the clone should be mutated, change it's values
                 }
                 break;
             case 5: //Change in ability to engulf cells
-                if(i!=3){
+                if(i!=2){
             //       if(irandom(3)==0) //25% chance of giving trait
                         newCell.canPhagocytosis = true;
                 }
@@ -134,7 +142,7 @@ if(isMutated) //If the clone should be mutated, change it's values
                 }
                 break;
             case 6: //Change in ciliaLevel
-                if(i!=3){
+                if(i!=2){
                     if(newCell.ciliaLevel<3)
                         newCell.ciliaLevel+=1
                 }
@@ -142,7 +150,7 @@ if(isMutated) //If the clone should be mutated, change it's values
                     newCell.ciliaLevel-=1;
                 break;
             case 7: //Change in flagellaLevel
-                if(i!=3){
+                if(i!=2){
                     if(newCell.flagellaLevel<3)
                         newCell.flagellaLevel+=1
                 }
@@ -154,54 +162,60 @@ if(isMutated) //If the clone should be mutated, change it's values
                 var toChange; //Array of particle types that can be changed
                 toChange[] = 0   
                 var k = 0;
-                for(var j = 0; j< array_length_1d(global.particles); j++){
-                    if(i!=3&&!newCell.canConsumeParticle[j]){//Add currently inactive particles
-                        toChange[k] = j
-                        k++;
+                if(!newConsumeOrResist){
+                    for(var j = 0; j< array_length_1d(global.particles); j++){
+                        if(i!=2&&!newCell.canConsumeParticle[j]){//Add currently inactive particles
+                            toChange[k] = j
+                            k++;
+                        }
+                        else if(newCell.canConsumeParticle[j])//Add active particles
+                        {
+                            toChange[k] = j
+                            k++;
+                        }
                     }
-                    else if(newCell.canConsumeParticle[j])//Add active particles
-                    {
-                        toChange[k] = j
-                        k++;
-                    }
-                }
-                
-                var numChangeable =array_length_1d(toChange)
-                //If there are no inactive particles, no positive change can be made
-                //If there is not at least two inactive, no negative change can be made
-                if((numChangeable>0&&i!=3)||(numChangeable>1)){
+                     numChangeable =array_length_1d(toChange)
+                    //If there are no inactive particles, no positive change can be made
+                    //If there is not at least two inactive, no negative change can be made
+                    if((numChangeable>0&&i!=2)||(numChangeable>1)){
                     var index =irandom(numChangeable-1);//Choose a random changeable particle type
                     newCell.canConsumeParticle[toChange[index]] = !newCell.canConsumeParticle[toChange[index]]
                     //Invert whether the particle type is active
+                    }
+                    newConsumeOrResist = true;
                 }
+            
                 break;
                 
             case 9: //Change in chemical immunities
                 var toChange;//Array of immunities that can be changed
                 toChange[] = 0   
                 var k = 0;
-                for(var j = 0; j< array_length_1d(global.chemicals); j++){
-                    if(i!=3&&!newCell.isResistantToChemical[j]){//Add currently inactive immunities
-                        toChange[k] = j
-                        k++;
+                if(!newConsumeOrResist){
+                    for(var j = 0; j< array_length_1d(global.chemicals); j++){
+                        if(i!=2&&!newCell.isResistantToChemical[j]){//Add currently inactive immunities
+                            toChange[k] = j
+                            k++;
+                        }
+                        else if(newCell.isResistantToChemical[j])//Add currently active immunities
+                        {
+                            toChange[k] = j
+                            k++;
+                        }
                     }
-                    else if(newCell.isResistantToChemical[j])//Add currently active immunities
-                    {
-                        toChange[k] = j
-                        k++;
+                    var numChangeable =array_length_1d(toChange)
+                    //If there are no inactive immunities, no positive change can be made
+                    //If there is not at least two inactive, no negative change can be made
+                    if((numChangeable>0&&i!=2)||(numChangeable>1)){
+                        var index =irandom(numChangeable-1);
+                        newCell.isResistantToChemical[toChange[index]] = !newCell.isResistantToChemical[toChange[index]]
                     }
+                    
+                    newConsumeOrResist = true;
                 }
                 
-                var numChangeable =array_length_1d(toChange)
-                //If there are no inactive immunities, no positive change can be made
-                //If there is not at least two inactive, no negative change can be made
-                if((numChangeable>0&&i!=3)||(numChangeable>1)){
-                    var index =irandom(numChangeable-1);
-                    newCell.isResistantToChemical[toChange[index]] = !newCell.isResistantToChemical[toChange[index]]
-                }
-                
-                if(i==3)
-                    break;      
+            if(i==3)
+                break;      
                 
         }
     }
@@ -211,7 +225,8 @@ newCell.cellSpeed = (newCell.flagellaLevel +newCell.ciliaLevel)+2*(2-newCell.sca
 newCell.speed = newCell.cellSpeed
 newCell.maxHeight = sprite_get_height(newCell.sprite_index)*newCell.scaleFactor * 0.30*2;
 newCell.maxWidth = sprite_get_width(newCell.sprite_index)*newCell.scaleFactor * 0.30*2;
-
-return newCell
-
-
+var result;
+result[]=0;
+result[0] =  newCell;
+result[1] = "test";
+return result
