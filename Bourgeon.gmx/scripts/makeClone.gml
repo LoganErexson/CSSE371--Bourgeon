@@ -65,7 +65,7 @@ if(isMutated) //If the clone should be mutated, change it's values
     var newConsumeOrResist = false;
     for(var i = 0; i<numMutations; i++)
     {
-        traitNum = irandom(9) //Number for the trait that will be changed
+        traitNum = irandom(13) //Number for the trait that will be changed
         switch(traitNum)
         {
             case 0: //Change in size
@@ -80,7 +80,7 @@ if(isMutated) //If the clone should be mutated, change it's values
                 //Visual size is not changed because this would 
                 //give one of the new cells an advantage
                 
-                newCell.neededATP = newCell.scaleFactor*10
+                newCell.neededATP = newCell.scaleFactor*5
                 break;
             case 1: //Change in health
                 if(i!=2){//Increase
@@ -95,6 +95,7 @@ if(isMutated) //If the clone should be mutated, change it's values
                 }
                 break;
             case 2: //Random color change
+            case 10:
                 var rgb = irandom(2);
                 if(rgb==0){
                     newCell.image_blend +=$000033//*choose(-1,1)
@@ -132,16 +133,16 @@ if(isMutated) //If the clone should be mutated, change it's values
                 }
                 break;
             case 5: //Change in ability to engulf cells
+            case 13:
                 if(i!=2){
-            //       if(irandom(3)==0) //25% chance of giving trait
                         newCell.canPhagocytosis = true;
                 }
                 else{
-              //      if(irandom(2)==0) //33% chance of losing trait
                         newCell.canPhagocytosis = false;
                 }
                 break;
             case 6: //Change in ciliaLevel
+            case 11:
                 if(i!=2){
                     if(newCell.ciliaLevel<3)
                         newCell.ciliaLevel+=1
@@ -150,6 +151,7 @@ if(isMutated) //If the clone should be mutated, change it's values
                     newCell.ciliaLevel-=1;
                 break;
             case 7: //Change in flagellaLevel
+            case 12:
                 if(i!=2){
                     if(newCell.flagellaLevel<3)
                         newCell.flagellaLevel+=1

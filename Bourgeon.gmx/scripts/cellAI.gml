@@ -75,7 +75,7 @@ for (var i = 0; i <array_length_1d(_cell_list); i++ )
         //give this move a higher value the closer it moves to the cell
             distVal = 3*(_distance-_newDistance)
         }
-        else if(_cell_list[i].canPhagocytosis){
+        else if(_cell_list[i].canPhagocytosis&&(_cell.image_xscale - _cell_list[i].image_xscale)<0){
         //The other cell is bigger so give this move a higher value the
         //farther _cell moves from the other
             distVal = 3*(_newDistance-_distance)

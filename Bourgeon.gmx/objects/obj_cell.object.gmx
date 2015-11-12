@@ -59,7 +59,7 @@ image_yscale = scaleFactor * 0.30;
 image_xscale = scaleFactor * 0.30;
 maxHeight = sprite_height*1.5;
 maxWidth = sprite_width*1.5;
-neededATP = scaleFactor*10;
+neededATP = scaleFactor*5;
 image_counter = 0;
 
 maxHealth = 100*scaleFactor;
