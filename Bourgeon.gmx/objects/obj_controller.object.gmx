@@ -43,7 +43,7 @@ final_surface = surface_create(1601,901);
 
 var player = instance_find(obj_player, 0)
 pauseText = instance_create(player.x,player.y, obj_pause);
-pauseText.depth = -100
+pauseText.depth = -1001
 pauseText.visible = false;
 resumeButton = instance_create(player.x, player.y, obj_resume_button);
 resumeButton.visible = false;
@@ -101,9 +101,14 @@ alarm[0] = 100;
             <kind>1</kind>
             <string>if(global.numParticles &lt; min_food_particles_present)
 {
+    for(var j =0; j&lt;30; j++){
+         instance_create(random(room_width), random(room_height), obj_particle);
+    }
+}
+for(var i = 0; i&lt;10; i++)
+{
     instance_create(random(room_width), random(room_height), obj_particle);
 }
-
 alarm[0] = 40;
 </string>
           </argument>
@@ -207,7 +212,7 @@ shader_reset();
         if(global.playerIsAlive)
         {
             pauseText.x = view_xview[0]+320;
-            pauseText.y = view_yview[0]+50;
+            pauseText.y = view_yview[0]+60;
             pauseText.visible = true;
             
             resumeButton.x = view_xview[0] + 320;

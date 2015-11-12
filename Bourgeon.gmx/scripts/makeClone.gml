@@ -80,7 +80,7 @@ if(isMutated) //If the clone should be mutated, change it's values
                 //Visual size is not changed because this would 
                 //give one of the new cells an advantage
                 
-                newCell.neededATP = newCell.scaleFactor*5
+                newCell.neededATP = newCell.scaleFactor*7
                 break;
             case 1: //Change in health
                 if(i!=2){//Increase

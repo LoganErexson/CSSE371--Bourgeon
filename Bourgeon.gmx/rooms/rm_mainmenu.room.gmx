@@ -59,6 +59,7 @@ part_emitter_stream(global.P_System_Start, Particle_Emitter, global.Bubble, 1);<
   </views>
   <instances>
     <instance objName="obj_start_button" x="512" y="352" name="inst_2F012042" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_quitgame_button" x="512" y="407" name="inst_27583F82" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
